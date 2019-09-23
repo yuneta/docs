@@ -1,0 +1,25 @@
+.hgtags
+/.hg/
+.hgignore
+
+/docs.old/
+deploy_web.sh
+
+*.kdev4
+.cache/
+
+core
+core.*
+
+# sphinx generated files
+/docsbuild/
+
+.webassets-cache/
+.sass-cache/
+
+*.komodoproject
+
+*.swp
+
+doctrees/
+build/

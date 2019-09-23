@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Instalación de Yuneta &#8212; documentación de Yuneta - 3.0</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Filosofía de Yuneta" href="yuneta_teoria.html" />
+    <link rel="prev" title="Yuneta" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="instalacion-de-yuneta">
+<h1>Instalación de <span class="yuneta">Yuneta</span><a class="headerlink" href="#instalacion-de-yuneta" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los <span class="node">nodos</span> de Yuneta pueden clasificarse en:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><span class="node-dev">Nodo de desarrollo</span>:</dt><dd><ul>
+<li><p>Contiene el código fuente de los proyectos y del framework Yuneta.</p></li>
+<li><p>Es la factoria de <span class="yuno">yunos</span>, es decir, de los binarios y sus configuraciones iniciales,
+que acabarán desplegados en los <span class="node-job">Nodo de trabajo</span>.</p></li>
+<li><p>Es aconsejable tener un <span class="node-dev">nodo de desarrollo</span>
+por cada tipo de procesador (x86_64, Arm, …) y por cada tipo distribución de Linux (Debian, CentOs, …) para proporcionar los binarios correctos a cada sistema.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="node-job">Nodo de trabajo</span></dt><dd><ul>
+<li><p>Realiza la carga de trabajo. Contiene los binarios y sus configuraciones (<span class="yuno">yunos</span>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><span class="yuneta">Yuneta</span> se instala en el directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code>, es decir,
+cuelga directamente del directorio root <code class="docutils literal notranslate"><span class="pre">/</span></code> del sistema de ficheros.</p>
+<p><span class="yuneta">Yuneta</span> no usa ningún otro directorio del sistemas de ficheros, tales como <code class="docutils literal notranslate"><span class="pre">/usr</span></code> o <code class="docutils literal notranslate"><span class="pre">/var</span></code>,
+a excepción de <code class="docutils literal notranslate"><span class="pre">/etc</span></code> que se usa para instalar
+el arranque autómatico del servicio del <span class="agent">agente</span>.</p>
+<p>Es aconsejable que el directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> disponga de su propia partición.</p>
+<p>El directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> y todos sus subdirectorios deben pertener al usuario y grupo <strong>yuneta</strong>.</p>
+</div>
+<div class="section" id="nodo-de-desarrollo">
+<h2><span class="node-dev">Nodo de desarrollo</span><a class="headerlink" href="#nodo-de-desarrollo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Ejemplo de instalación en un nodo con <strong>Debian 9.5</strong> teniendo permisos de <em>root</em>.</p>
+<p>Si no tiene permisos de <em>root</em> contacte con su administrador de sistemas operativos.</p>
+<ul>
+<li><p>Como <strong>root</strong>: instalar paquetes útiles:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">vim</span> <span class="n">rsync</span> <span class="n">tree</span> <span class="n">sudo</span> <span class="n">ssh</span> <span class="n">curl</span>
+</pre></div>
+</div>
+</li>
+<li><p>Como <strong>root</strong>: crear el usuario <code class="docutils literal notranslate"><span class="pre">yuneta</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adduser</span> <span class="n">yuneta</span>
+</pre></div>
+</div>
+</li>
+<li><p>Si sale el warning : Setting locale failed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dpkg</span><span class="o">-</span><span class="n">reconfigure</span> <span class="n">locales</span>
+</pre></div>
+</div>
+</li>
+<li><p>Como <strong>root</strong>: crear el directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> y darle la propiedad a <em>yuneta</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span>
+<span class="n">chown</span> <span class="n">yuneta</span><span class="p">:</span><span class="n">yuneta</span> <span class="o">/</span><span class="n">yuneta</span>
+</pre></div>
+</div>
+</li>
+<li><p>Como <strong>root</strong>: ACONSEJABLE, mejorar la seguridad de acceso ssh:</p>
+<blockquote>
+<div><p>Editar el fichero <code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code> para restringir el acceso como root:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PermitRootLogin</span> <span class="n">no</span>
+</pre></div>
+</div>
+<p>Relanzar el servicio ssh:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
+</pre></div>
+</div>
+<p>Si el servidor está en una red pública (Internet),
+puedes instalar la utilidad <a class="reference external" href="https://es.wikipedia.org/wiki/Fail2ban">fail2ban</a> para blindar el servidor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">fail2ban</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Como <strong>root</strong>: en Debian o similares, instalar los paquetes de desarrollo usados por <span class="yuneta">Yuneta</span>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">autotools</span><span class="o">-</span><span class="n">dev</span> <span class="n">automake</span> <span class="n">autogen</span> <span class="n">libtool</span> <span class="n">debmake</span> <span class="n">cmake</span> <span class="n">gettext</span> <span class="n">mercurial</span> <span class="n">git</span> <span class="n">psmisc</span> <span class="n">liblzma</span><span class="o">-</span><span class="n">dev</span> <span class="n">libpcre3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libcurl4</span><span class="o">-</span><span class="n">openssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">libssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">libldap2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libidn11</span><span class="o">-</span><span class="n">dev</span> <span class="n">libidn2</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">librtmp</span><span class="o">-</span><span class="n">dev</span> <span class="n">libprocps</span><span class="o">-</span><span class="n">dev</span> <span class="n">uuid</span><span class="o">-</span><span class="n">dev</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>En Centos o similar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sudo usermod -aG wheel yuneta # wheel group has sudo privileges</span>
+
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">group</span> <span class="n">install</span> <span class="s2">&quot;Development Tools&quot;</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">pcre</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">uuid</span><span class="o">-</span><span class="n">devel</span>
+
+<span class="c1"># see https://www.howtoforge.com/tutorial/how-to-install-fail2ban-on-centos/</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+<span class="n">yum</span> <span class="n">install</span> <span class="n">fail2ban</span> <span class="n">fail2ban</span><span class="o">-</span><span class="n">systemd</span>
+
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">xz</span><span class="o">-</span><span class="n">devel</span> <span class="n">centos</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">scl</span>
+</pre></div>
+</div>
+</li>
+<li><p>A partir de aquí, los comandos hay que ejecutarlos como usuario <strong>yuneta</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">su</span> <span class="o">-</span> <span class="n">yuneta</span>
+</pre></div>
+</div>
+</li>
+<li><p>O mejor: sal del equipo (<code class="docutils literal notranslate"><span class="pre">exit</span></code>) y vuelve a entrar
+por ssh con el usuario <strong>yuneta</strong> para comprobar los cambios en el servicio ssh:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ssh yuneta@??.??.??.?? (ip del nodo)
+</pre></div>
+</div>
+</li>
+<li><p>Como <strong>yuneta</strong>: instalar el framework <span class="yuneta">Yuneta</span></p>
+<blockquote>
+<div><ul>
+<li><p>Crea los directorios básicos</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="nb">bin</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">agent</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">projects</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">output</span>
+</pre></div>
+</div>
+</li>
+<li><p>Instalación de <strong>GObj-ecosistema</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">external</span><span class="o">-</span><span class="n">libs</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">external</span><span class="o">-</span><span class="n">libs</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">ghelpers</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">ghelpers</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">ginsfsm</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">ginsfsm</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">tests</span><span class="o">-</span><span class="n">g</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">tests</span><span class="o">-</span><span class="n">g</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">stats</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">stats</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">timeranger</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">timeranger</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">ytls</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">gobj</span><span class="o">-</span><span class="n">ecosistema</span><span class="o">/</span><span class="n">ytls</span>
+</pre></div>
+</div>
+</li>
+<li><p>Instalación de <strong>Yuneta</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">c</span><span class="o">-</span><span class="n">core</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">c</span><span class="o">-</span><span class="n">core</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">c</span><span class="o">-</span><span class="n">rc_sqlite</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">c</span><span class="o">-</span><span class="n">rc_sqlite</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">js</span><span class="o">-</span><span class="n">core</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">js</span><span class="o">-</span><span class="n">core</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">c</span><span class="o">-</span><span class="n">tls</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">c</span><span class="o">-</span><span class="n">tls</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">packages</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">packages</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">tests</span><span class="o">-</span><span class="n">y</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">tests</span><span class="o">-</span><span class="n">y</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">web</span><span class="o">-</span><span class="n">skeleton3</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">web</span><span class="o">-</span><span class="n">skeleton3</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ybatch</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ybatch</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ycommand</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ycommand</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ylist</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ylist</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">yshutdown</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">yshutdown</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ystats</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ystats</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ytestconfig</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">ytestconfig</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">yuno_agent</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">yuno_agent</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">yuno_cli</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">yuno_cli</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">yuno</span><span class="o">-</span><span class="n">skeleton</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">yuno</span><span class="o">-</span><span class="n">skeleton</span>
+</pre></div>
+</div>
+</li>
+<li><p>Instalación de <strong>Yuno-store</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuno</span><span class="o">-</span><span class="n">store</span><span class="o">/</span><span class="n">emailsender</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yunos</span><span class="o">/</span><span class="n">emailsender</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuno</span><span class="o">-</span><span class="n">store</span><span class="o">/</span><span class="n">emu_device</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yunos</span><span class="o">/</span><span class="n">emu_device</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuno</span><span class="o">-</span><span class="n">store</span><span class="o">/</span><span class="n">logcenter</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yunos</span><span class="o">/</span><span class="n">logcenter</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">yuno</span><span class="o">-</span><span class="n">store</span><span class="o">/</span><span class="n">watchfs</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yunos</span><span class="o">/</span><span class="n">watchfs</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Si quieres directorios compartidos para el grupo
+(derecho de escritura para todos los usuarios del grupo <em>yuneta</em>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find</span> <span class="o">/</span><span class="n">yuneta</span> <span class="o">-</span><span class="nb">type</span> <span class="n">d</span> <span class="o">-</span><span class="n">exec</span> <span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">s</span> <span class="p">{}</span> \<span class="p">;</span>
+<span class="n">find</span> <span class="o">/</span><span class="n">yuneta</span> <span class="o">-</span><span class="nb">type</span> <span class="n">d</span> <span class="o">-</span><span class="n">exec</span> <span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">w</span> <span class="p">{}</span> \<span class="p">;</span>
+<span class="n">find</span> <span class="o">/</span><span class="n">yuneta</span> <span class="o">-</span><span class="nb">type</span> <span class="n">f</span> <span class="o">-</span><span class="n">exec</span> <span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">w</span> <span class="p">{}</span> \<span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="compilacion-de-yuneta">
+<h2>Compilación de <span class="yuneta">Yuneta</span><a class="headerlink" href="#compilacion-de-yuneta" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para facilitar la compilación decomprime este fichero que contiene varios CMakeLists.txt que agrupan los proyectos y un script para compilarlos:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/*</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">recompila</span><span class="o">.</span><span class="n">sh</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span>
+</pre></div>
+</div>
+<p>Y ahora ya puedes compilarlo todo (OJO, puede durar bastante tiempo)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span>
+<span class="o">./</span><span class="n">recompila</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="instalacion-del-agente">
+<h2>Instalación del <span class="agent">Agente</span><a class="headerlink" href="#instalacion-del-agente" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para instalar el <span class="run-time">Run-time</span> del Agente en el nodo de desarrollo, ejecutar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">agent</span>
+<span class="o">./</span><span class="n">deploy_agent</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">agent</span><span class="o">/</span><span class="n">service</span>
+<span class="n">sudo</span> <span class="o">./</span><span class="n">install</span><span class="o">-</span><span class="n">yuneta</span><span class="o">-</span><span class="n">service</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Ahora puedes rebootear el equipo para comprobar que el servicio del agente se inicia correctamente:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>o puedes arrancarlo manualmente:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">agent</span><span class="o">/</span><span class="n">yuneta_agent</span> <span class="o">--</span><span class="n">start</span>
+</pre></div>
+</div>
+<p>Una vez rebooteado el equipo o arrancado manualmente el servicio, ejecuta el <span class="cli">CLI</span>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">yuneta</span>
+</pre></div>
+</div>
+<p>Si te aparece una pantalla con las dos líneas inferiores de color blanco y naranja,
+con algo así escrito:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">console</span><span class="o">&gt;</span>
+<span class="n">Wellcome</span> <span class="n">to</span> <span class="n">Yuneta</span><span class="o">.</span> <span class="n">Type</span> <span class="n">help</span> <span class="k">for</span> <span class="n">assistance</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Enhorabuena! ya tienes a <span class="yuneta">Yuneta</span> funcionado. Ahora conéctate al agente del nodo local y empieza a jugar.
+Para cualquier duda, teclea <code class="docutils literal notranslate"><span class="pre">help</span></code>, o simplemente <code class="docutils literal notranslate"><span class="pre">h</span></code>.</p>
+<p>Por comodidad para ejecutar los comandos de <span class="yuneta">Yuneta</span> añade a la variable $PATH las rutas:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="nb">bin</span>
+<span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="nb">bin</span>
+<span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="nb">bin</span>
+<span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">yunos</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nodo-de-trabajo">
+<h2><span class="node-job">Nodo de trabajo</span><a class="headerlink" href="#nodo-de-trabajo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para crear un <span class="node-job">nodo de trabajo</span> de <span class="yuneta">Yuneta</span>:</p>
+<blockquote>
+<div><ul>
+<li><p>Crea el <span class="run-time">run-time</span> del <span class="agent">Agente</span> adecuado al dispositivo.</p>
+<blockquote>
+<div><p>Para crear un paquete <code class="docutils literal notranslate"><span class="pre">.deb</span></code> del <span class="run-time">run-time</span> del <span class="agent">Agente</span> usa los
+scripts del directorio <code class="docutils literal notranslate"><span class="pre">/yuneta/development/yuneta/^yuneta/packages</span></code>.</p>
+<p>Por ejemplo para Debian/AMD64:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span><span class="o">/^</span><span class="n">yuneta</span><span class="o">/</span><span class="n">packages</span>
+<span class="o">./</span><span class="n">build</span><span class="o">-</span><span class="n">yuneta</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">debian</span><span class="o">-</span><span class="n">AMD64</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Los paquetes <code class="docutils literal notranslate"><span class="pre">.deb</span></code> se generan en el directorio en <code class="docutils literal notranslate"><span class="pre">~/deb-build/</span></code>.</p>
+</div></blockquote>
+</li>
+<li><p>Ejemplo de instalación manual en nodo de trabajo con hostname <code class="docutils literal notranslate"><span class="pre">nodo100</span></code>
+(sustituyelo por una ip o un hostname real),
+suponiendo que has generado la version <code class="docutils literal notranslate"><span class="pre">3.2.0</span></code> release <code class="docutils literal notranslate"><span class="pre">1</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">deb</span><span class="o">-</span><span class="n">build</span><span class="o">/</span><span class="n">amd64</span>
+<span class="n">scp</span> <span class="n">yuneta</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="mf">3.2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">yuneta</span><span class="nd">@nodo100</span><span class="p">:</span>
+<span class="n">ssh</span> <span class="n">yuneta</span><span class="nd">@nodo100</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">./</span><span class="n">yuneta</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="mf">3.2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Instalación de <span class="yuneta">Yuneta</span></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nodo-de-desarrollo"><span class="node-dev">Nodo de desarrollo</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compilacion-de-yuneta">Compilación de <span class="yuneta">Yuneta</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion-del-agente">Instalación del <span class="agent">Agente</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nodo-de-trabajo"><span class="node-job">Nodo de trabajo</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yuneta_teoria.html">Filosofía de Yuneta</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Niyamaka.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/yuneta_install.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
