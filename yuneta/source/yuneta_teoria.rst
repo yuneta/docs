@@ -1,1 +1,0 @@
-/yuneta/development/projects/^fichador/fichador-doc/blog/source/yuneta_teoria.rst
