@@ -57,6 +57,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = 'alabaster'
+
 html_sidebars = {
     '**': [
         'about.html',
@@ -68,6 +69,8 @@ html_sidebars = {
 }
 html_theme_options = {
     'logo': 'logo.png',
+    'fixed_sidebar': True,
+    'page_width': '1400px'
 }
 
 html_favicon = '_static/favicon.ico'

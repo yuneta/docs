@@ -2,7 +2,7 @@ Yuneta
 ======
 
 .. image:: _static/yuneta.png
-   :scale: 50 %
+   :scale: 30 %
 
 .. toctree::
    :maxdepth: 2
