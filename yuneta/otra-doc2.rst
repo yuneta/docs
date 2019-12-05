@@ -1,226 +1,232 @@
-.. include:: colors.rst
+.. Yuneta documentation master file, created by
+   sphinx-quickstart on Wed Oct 21 16:25:43 2015.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-.. |pagebreak| raw:: html
+====================
+Otra documentación 2
+====================
 
-   <div class="pagebreak"> </div>
+.. warning::
 
-=======================
-Documentación antigua 2
-=======================
+    This documentation is not completely updated!
 
-Introducción
-============
+Yuneta
+======
 
-:yuneta:`Yuneta` es una herramienta de **desarrollo** y **operación**
-de sistemas de información escalables y distribuidos, desplegados en un sistema o red de :node:`nodos` Linux.
-
-El mundo de Yuneta
-------------------
-
-:yuneta:`Yuneta` pertenece al mundo de **Aplicación**.
-
-:yuneta:`Yuneta` es usuaria del mundo de **Sistema Operativo** y del mundo de **Red**.
-
-El mundo de **Sistema Operativo** y **Red** son mundos de **operación**.
-Hay que dejar claro que :yuneta:`Yuneta` posee su **propia operación**,
-independiente del resto y con una formación específica.
-
-   .. image:: _static/mundos.svg
-      :width: 15 %
-
-Herramienta de bajo nivel
--------------------------
-
-:yuneta:`Yuneta` está escrita en C, lo que proporciona rápidez y tamaño mínimo.
-Su única dependencia es el sistema operativo Linux, de 32 o 64 bits.
-Eso le permite correr tanto en grandes máquinas como en pequeñas máquinas tipo RaspberryPI.
-Desarrollado con el IDE |kdevelop_link| de la distribución de Linux |kubuntu_link|.
-
-.. |kdevelop_link| raw:: html
-
-   <a href="https://www.kdevelop.org/" target="_blank">KDevelop</a>
-
-.. |kubuntu_link| raw:: html
-
-   <a href="https://kubuntu.org/" target="_blank">Kubuntu</a>
+.. image:: _static/yuneta.png
+   :scale: 50 %
 
 
+What is Yuneta?
+===============
 
-Herramienta de desarrollo rápido
---------------------------------
+Yuneta_ is a C development framework.
 
-:yuneta:`Yuneta` es un framework de desarrollo rápido, fuertemente inspirado en el diseño interno del
-lenguaje |python_link| y el framework de desarrollo web |pyramid_link|.
+Internal features:
+    * asynchronous I/O, based in libuv_ library.
+    * structured data, based in `ASN.1`_ standard.
+    * json_ data, based in jansson_ library.
+    * finite state machine, based in ginsfsm_ library.
+    * communication between yunos by json_ messages.
 
-.. |python_link| raw:: html
+Yuneta goal is **create** daemons or cli's, also called *yunos*.
 
-   <a href="https://www.python.org/" target="_blank">Python</a>
+Yuneta also give you a platform for **deploy** and **operation** of *yunos*.
 
-.. |pyramid_link| raw:: html
+Yuneta_ allows you to organize the *yunos* in **realms** of *yunos*.
 
-   <a href="https://trypyramid.com/" target="_blank">Pyramid</a>
+A *yuno* can be a standalone program, ie, a utility,
+or can be a collaborator program, ie, a service,
+living in a realm sharing the world with others *yunos*.
 
-Herramienta legible
--------------------
+*Realms* of *yunos* can be easily cloned, even running realms
+with all his persistent data.
 
-El origen de :yuneta:`Yuneta` es un |ginsfsm_link| escrita en Python,
-heredando del lenguaje su filosofía de sencillez y legibilidad (|zen_link|).
+.. _ginsfsm: https://github.com/gobj-ecosistema/ginsfsm
+.. _ASN.1: https://es.wikipedia.org/wiki/ASN.1
+.. _json: http://www.json.org/
 
-.. |ginsfsm_link| raw:: html
+Dependencies
+------------
 
-   <a href="https://pythonhosted.org/ginsfsm/" target="_blank">libreria</a>
+    * `http parser`_
+    * pcre2_
+    * unwind_
+    * libuv_
+    * jansson_
+    * `gobj ecosistema`_
+    * `Yuneta C core`_
 
-.. |zen_link| raw:: html
-
-   <a href="https://www.python.org/dev/peps/pep-0020/" target="_blank">Zen</a>
-
-Herramienta en crecimiento
---------------------------
-
-:yuneta:`Yuneta` busca nuevos y variados proyectos para crecer y fortalecerse con nuevas habilidades,
-con el objetivo de conseguir una herramienta todo terreno.
-
-:yuneta:`Yuneta` se puede aplicar en cualquier campo donde existan comunicaciones e intercambio de mensajes,
-aportando escalabilidad, potencia y fiabilidad.
-
-:yuneta:`Yuneta` ha nacido para jugar un papel importante en campos como:
-
-* Internet de las Cosas (IoT)
-* Blockchain
-* Machine Learning
-
-Caracteristicas técnicas
-------------------------
-
-* Kernel en lenguaje C, para sistemas Linux de 32 o 64 bits.
-* Filosofía open-source, usando las prestigiosas librerías de código abierto:
-
-    * Plataforma de comunicaciones asíncrona  `Libuv <http://libuv.org>`_.
-    * librería JSON jansson_.
-
-* CLI para operación avanzada en consola.
-* GUI para operación básica en navegador.
-
+.. _http parser: http://github.com/joyent/http-parser
+.. _pcre2: http://www.pcre.org
+.. _unwind: http://www.nongnu.org/libunwind
 .. _libuv: http://libuv.org
 .. _jansson: http://www.digip.org/jansson
+.. _gobj ecosistema: https://github.com/gobj-ecosistema
+.. _Yuneta C core: https://github.com/yuneta
 
-|pagebreak|
 
-Conceptos básicos
+Development Realm
 =================
 
-Conceptos básicos sobre los que se asienta :yuneta:`Yuneta`:
+**Factory of Yunos**
 
-    * :node:`nodo`
-    * :realm:`reino`
-    * :yuno:`yuno`
-    * :role:`role`
-    * :name:`name`
-    * :service:`servicio`
-    * :channel:`canal`
-    * :message:`mensaje`
-    * :cli:`CLI`
-    * :gui:`GUI`
+    - ``/yuneta/development``
 
+        Shared group directory for development.
 
-   .. image:: _static/huevos.svg
-      :width: 70 %
+        Include the Yuneta source code and your projects.
 
+Development Realm Organization
+------------------------------
 
-Nodo
-----
+- /yuneta/development
+    It's a linux shared group (drwxrwsr-x).
 
-El :node:`Nodo` es el dispositivo, físico o virtual,
-donde se alojan los componentes de :yuneta:`Yuneta`: los :realm:`reinos` y sus :yuno:`yunos`.
-Todo ello gestionado por el :agent:`Agente` del :node:`Nodo`.
+    All files and directories have write permission for all members of group.
 
-El :node:`nodo` contiene el sistema operativo, única dependencia de :yuneta:`Yuneta`,
-y es la puerta a la red,
-por donde se establecen los :channel:`canales` que conectan a otro :node:`nodos` o dispositivos exteriores.
+    The group name is and must be *yuneta*.
 
-El :node:`nodo` afecta principalmente a Operación: por un lado, a *Operación de Yuneta*,
-y por otro lado, a *Operación de Sistemas Operativos y Red*.
-Deben existir procedimientos claros, fluidos y si es posible automátizados, entre estos dos mundos de Operación.
+    The propietary of directories and files can be any member of the group.
 
-El tiempo de respuesta de *Operación de S.O. y Red* debe ser lo más corto posible ante requerimientos
-como solicitar un nuevo nodo o la existencia de un problema de conectividad de red.
+    The directories in */yuneta/development* are:
 
-El :node:`nodo`, que normalmente estará distribuido en entornos de producción, preproducción, test, etc,
-afecta al presupuesto, porque tiene un coste dependiendo de sus características (memoria, cpus, disco, etc).
+    /bin
+        Development utilities, like ``yuno-skeleton``.
 
-Se requiere, por tanto, que la red de :node:`nodos` del sistema, con la topología elegida,
-esté bien dimensionada;
-por un lado, para no andar cortos de potencia, problema que afectaría al cliente final;
-por otro lado, para no ir muy sobrados de potencia y ser así un gasto excesivo.
+        /skeletons
+            Skeletons for yuno projects and gclass source code.
 
-Exiten varios tipos de nodos:
+            /gclass_child
 
-* :node:`nodo` master: Nodo gestor de un sistema de nodos.
-* :node:`nodo` operacional. Nodo integrante de un sistema de nodos.
-* :node:`nodo` fuente. Nodo con el código fuente y generador del componente binario del :yuno:`Yuno`.
+            /gclass_simple
 
-Reino
------
+            /gclass_timer
 
-:realm:`Reino` es la agrupación lógica de :yuno:`yunos` para poder administrarlos fácilmente.
+            /yuno_simple
 
+            /yuno_user
 
-Yuno
-----
+            ...
 
-:yuno:`Yuno` es la entidad definida con un rol (binario) y/o un nombre (configuración)
-que ofrece los :service:`servicios` de tu negocio.
+    /output
+        The product of Yuneta_ framework: includes, libraries and *yunos*.
 
-Rol
----
+        /agent
+            binaries of agent and scripts to install as service.
 
-Los :yuno:`Yunos` se diseñan con un :role:`Rol`. El que quieras.
+        /bin
+            binaries of external libraries.
 
-Nombre
-------
+        /include
+            include files.
 
-Tus :yuno:`Yunos`, además de tener **obligatoriamente** un :role:`rol` ,
-pueden tener un :name:`nombre` o ser anónimos, lo que quieras.
+        /lib
+            library files.
 
-Servicio
---------
+        /man
+            generated by external libraries.
 
-:service:`Servicio` es la tarea dentro del :yuno:`yuno`
-que ofrece un servicio público de negocio alimentado por :message:`mensajes`.
+        /share
+            generated by external libraries.
 
-Canal
------
-
-:channel:`Canal` es la conexión entre los :service:`servicios` de los yunos
-por donde circulan los :message:`mensajes`.
-
-Mensaje
--------
-
-:message:`Mensaje` es la estructura de datos en formato `Json <https://en.wikipedia.org/wiki/JSON>`_
-que contiene la información vital de tu negocio.
-
-CLI
----
-
-GUI
----
+        /yunos
+            binary files.
 
 
-|pagebreak|
+    /projects
+        Your Yuneta_ projects.
 
-Diseña tu sistema de información
-================================
+    /yuneta
+        The source code of Yuneta:
 
-Define los :message:`mensajes` de tu negocio y
-diseña los :service:`servicios` necesarios para distribuir y procesar los mensajes.
+        /^gobj-ecosistema-v2
+            gobj-ecosistema source code.
 
-Crea tus :service:`servicios` en :yuno:`yunos` definidos por **rol** y **nombre**,
-organiza los yunos en :realm:`reinos`,
-y para conseguir potencia y fiabilidad, distribuye los reinos y yunos en multiples :node:`nodos`,
-conectando los servicios mediante :channel:`canales`.
+        /^yuneta-v2  /
+            Yuneta_ source code.
 
-   .. image:: _static/huevos2.svg
-      :width: 100 %
+        /^yunos
+            some yunos supplied by Yuneta_.
 
+
+Yuneta Realm
+============
+
+**Deploy and Operation of Yunos**
+
+
+Yuneta Realm Organization
+-------------------------
+
+- /yuneta
+    It's a linux shared group (drwxrwsr-x).
+
+    All files and directories have write permission for all members of group.
+
+    The group name is and must be *yuneta*.
+
+    The propietary of directories and files can be any member of the group.
+
+    /agent
+        **non-persistent**.
+
+
+        ``yuneta_agent`` yuneta agent.
+
+        `yuneta_agent.json` yuneta agent configuration.
+
+        /service
+            Utilities to install the yuneta_agent service::
+
+                - install-yuneta-service.sh
+                - remove-yuneta-service.sh
+                - yuneta_agent
+
+
+    /bin
+        **non-persistent**.
+
+        ``yuneta`` command line interface.
+        StandAlone *yunos*.
+        Utilities of deploy and operation.
+
+    /public
+        **non-persistent**.
+
+        Public files.
+
+    /realms
+        **non-persistent**.
+
+        /domain
+
+            /bin
+                Scripts to run the yunos.
+
+            /data
+                Data valid while realm live.
+
+            /temp
+                Temporal data files. Can be delete in a machine restart.
+
+            /logs
+                Log files.
+
+    /repos
+        **persistent**.
+
+        Local repository of *yuno*'s binaries and *yuno*'s configurations.
+
+    /store
+        **persistent**.
+
+        Home of *agent.db*.
+
+        /backup
+            Backup of databases in json format files.
+
+        /service
+            Databases of yuno's services.
 

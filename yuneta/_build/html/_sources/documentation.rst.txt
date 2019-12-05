@@ -10,7 +10,7 @@ Documentación
    :maxdepth: 1
 
    yuneta_teoria.rst
-   otra-doc.rst
+   otra-doc1.rst
    otra-doc2.rst
    presentacion1.rst
    presentacion2.rst

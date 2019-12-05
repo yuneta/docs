@@ -1,4 +1,4 @@
-Último documento
+Teoria de Yuneta
 ================
 
 .. sectionauthor:: Maestro Niyamaka.
