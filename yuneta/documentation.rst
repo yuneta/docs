@@ -3,7 +3,7 @@ Documentación
 
 .. note::
 
-    Documentación incompleta y sin revisar completamente.
+    Documentación incompleta y sin revisar.
 
 .. toctree::
    :maxdepth: 1
