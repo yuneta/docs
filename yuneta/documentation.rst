@@ -3,8 +3,7 @@ Documentación
 
 .. note::
 
-    Documentación incompleta y sin revisar.
-    Publicada para entender la historia y filosofía detrás de Yuneta.
+    Documentación incompleta y sin revisar completamente.
 
 .. toctree::
    :maxdepth: 1
