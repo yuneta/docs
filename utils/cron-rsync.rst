@@ -7,6 +7,10 @@ Sincroniza directorios con rsync
 
     Change <IP>
 
+Remember install::
+
+    sudo apt install super
+
 
 Sync hg
 -------
