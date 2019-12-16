@@ -88,8 +88,6 @@
 <li><p>Contiene el código fuente de los proyectos y del framework Yuneta.</p></li>
 <li><p>Es la factoria de <span class="yuno">yunos</span>, es decir, de los binarios y sus configuraciones iniciales,
 que acabarán desplegados en los <span class="node-job">Nodo de trabajo</span>.</p></li>
-<li><p>Es aconsejable tener un <span class="node-dev">nodo de desarrollo</span>
-por cada tipo de procesador (x86_64, Arm, …) y por cada tipo distribución de Linux (Debian, CentOs, …) para proporcionar los binarios correctos a cada sistema.</p></li>
 </ul>
 </dd>
 </dl>
@@ -113,6 +111,9 @@ el arranque autómatico del servicio del <span class="agent">agente</span>.</p>
 </div>
 <div class="section" id="nodo-de-desarrollo">
 <h2><span class="node-dev">Nodo de desarrollo</span><a class="headerlink" href="#nodo-de-desarrollo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Puedes instalar yuneta con estos scripts:</p>
+<p><a class="reference download internal" download="" href="_downloads/9c8b4cda7eee38d4fba23cf42a3456a9/install-yuneta-dependencies.sh"><code class="xref download docutils literal notranslate"><span class="pre">install-yuneta-dependencies</span></code></a>.</p>
+<p><a class="reference download internal" download="" href="_downloads/f73cf0ac1e7e2bedcceb25c468f8495b/install-yuneta-packages.sh"><code class="xref download docutils literal notranslate"><span class="pre">install-yuneta-packages</span></code></a>.</p>
 <p>Ejemplo de instalación en un nodo con <strong>Debian 9.5</strong> teniendo permisos de <em>root</em>.</p>
 <p>Si no tiene permisos de <em>root</em> contacte con su administrador de sistemas operativos.</p>
 <ul>
@@ -162,11 +163,11 @@ puedes instalar la utilidad <a class="reference external" href="https://es.wikip
 <li><p>En Centos o similar:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sudo usermod -aG wheel yuneta # wheel group has sudo privileges</span>
 
-<span class="n">sudo</span> <span class="n">yum</span> <span class="n">group</span> <span class="n">install</span> <span class="s2">&quot;Development Tools&quot;</span>
-<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">pcre</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">static</span> <span class="n">libuuid</span><span class="o">-</span><span class="n">devel</span> <span class="n">psmisc</span> <span class="n">xz</span><span class="o">-</span><span class="n">devel</span> <span class="n">centos</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">scl</span> <span class="n">libarchive</span><span class="o">-</span><span class="n">devel</span>
+<span class="n">yum</span> <span class="n">group</span> <span class="n">install</span> <span class="s2">&quot;Development Tools&quot;</span>
+<span class="n">yum</span> <span class="n">install</span> <span class="n">pcre</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">static</span> <span class="n">libuuid</span><span class="o">-</span><span class="n">devel</span> <span class="n">psmisc</span> <span class="n">xz</span><span class="o">-</span><span class="n">devel</span> <span class="n">centos</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">scl</span> <span class="n">libarchive</span><span class="o">-</span><span class="n">devel</span>
 
 <span class="c1"># see https://www.howtoforge.com/tutorial/how-to-install-fail2ban-on-centos/</span>
-<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+<span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
 <span class="n">yum</span> <span class="n">install</span> <span class="n">fail2ban</span> <span class="n">fail2ban</span><span class="o">-</span><span class="n">systemd</span>
 </pre></div>
 </div>
@@ -192,12 +193,12 @@ por ssh con el usuario <strong>yuneta</strong> para comprobar los cambios en el 
 <blockquote>
 <div><ul>
 <li><p>Crea los directorios básicos</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="nb">bin</span>
-<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">agent</span>
-<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span>
-<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span>
-<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">projects</span>
-<span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">output</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="nb">bin</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">agent</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">yuneta</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">projects</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">yuneta</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">output</span>
 </pre></div>
 </div>
 </li>
