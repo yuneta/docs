@@ -77,6 +77,10 @@ cp -a /yuneta/development/yuneta/^yuneta/packages/yuneta-pull-from-github.sh /yu
 cd /yuneta/development/yuneta
 /bin/bash ./recompila.sh
 
+find /yuneta -type d -exec chmod g+s {} \;
+find /yuneta -type d -exec chmod g+w {} \;
+find /yuneta -type f -exec chmod g+w {} \;
+
 ################################################
 #   Install agent
 ################################################
