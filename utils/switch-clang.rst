@@ -8,6 +8,9 @@ export CC="musl-gcc -static -Os"
 cmake ..
 make
 
+export CC=clang
+export CXX=clang++
+
 ::
 
     #------------------------------------------
