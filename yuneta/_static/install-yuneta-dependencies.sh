@@ -31,7 +31,7 @@ elif [ -f "/usr/bin/yum" ]; then
 #   With yum
 #
     sudo yum -y group install "Development Tools"
-    sudo yum -y install pcre-devel zlib-devel zlib-static libuuid-devel psmisc xz-devel centos-release-scl libarchive-devel
+    sudo yum -y install pcre-devel zlib-devel zlib-static libuuid-devel psmisc xz-devel centos-release-scl libarchive-devel procps-ng-devel cmake
 
     # see https://www.howtoforge.com/tutorial/how-to-install-fail2ban-on-centos/
     sudo yum -y install epel-release
