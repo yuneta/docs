@@ -94,6 +94,9 @@ Si no tiene permisos de *root* contacte con su administrador de sistemas operati
 
         apt install fail2ban
 
+.. OJO modifica también
+.. /yuneta/development/yuneta/^yuneta/docs/yuneta/_static/install-yuneta-dependencies.sh
+
 * Como **root**: en Debian o similares, instalar los paquetes de desarrollo usados por :yuneta:`Yuneta`::
 
     apt -y install autotools-dev automake autogen libtool debmake cmake gettext mercurial git psmisc liblzma-dev zlib1g-dev libpcre3-dev libcurl4-openssl-dev libssl-dev libldap2-dev libidn11-dev libidn2-0-dev librtmp-dev libprocps-dev uuid-dev libarchive-dev
@@ -103,11 +106,13 @@ Si no tiene permisos de *root* contacte con su administrador de sistemas operati
     # sudo usermod -aG wheel yuneta # wheel group has sudo privileges
 
     yum group install "Development Tools"
-    yum install pcre-devel zlib-devel zlib-static libuuid-devel psmisc xz-devel centos-release-scl libarchive-devel
+    yum -y install pcre-devel zlib-devel zlib-static libuuid-devel psmisc xz-devel centos-release-scl libarchive-devel procps-ng-devel cmake
 
     # see https://www.howtoforge.com/tutorial/how-to-install-fail2ban-on-centos/
     yum install epel-release
     yum install fail2ban fail2ban-systemd
+    systemctl enable fail2ban
+    systemctl start fail2ban
 
 .. warning::
 
@@ -161,6 +166,8 @@ Si no tiene permisos de *root* contacte con su administrador de sistemas operati
         git clone https://github.com/yuneta/yuno_agent /yuneta/development/yuneta/^yuneta/yuno_agent
         git clone https://github.com/yuneta/yuno_cli /yuneta/development/yuneta/^yuneta/yuno_cli
         git clone https://github.com/yuneta/yuno-skeleton /yuneta/development/yuneta/^yuneta/yuno-skeleton
+        git clone https://github.com/yuneta/ygclass-rename /yuneta/development/yuneta/^yuneta/ygclass-rename
+        git clone https://github.com/yuneta/docs /yuneta/development/yuneta/^yuneta/docs
 
     * Instalación de **Yuno-store** ::
 

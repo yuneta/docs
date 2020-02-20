@@ -45,6 +45,7 @@ Está compuesta de:
           :ref:`API-Yuneta`.
         - Implementa la funcionalidad de la clase.
         - Los métodos de clase son una lista fija de métodos que un clase puede, **o no**, implementar.
+        - El método mt_stats permite que la clase pueda publicar sus estadísticas.
 
     - Sección de :ref:`Comandos`:
          - Accesible desde el exterior, forma parte del `Interface`.

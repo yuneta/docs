@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introducción &#8212; documentación de Yuneta - 3.0</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Instalación" href="yuneta_install.html" />
+    <link rel="prev" title="Yuneta" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introducción</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#interface-clase-g">Interface clase G</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#atributos">Atributos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comandos">Comandos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#estadisticas">Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mensajes">Mensajes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yuneta_install.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentación</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="introduccion">
+<h1>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La interacción con la clase G se realiza a través de sus atributos, comandos y mensajes.</p>
+<div class="section" id="interface-clase-g">
+<h2>Interface clase G<a class="headerlink" href="#interface-clase-g" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;www.draw.io\&quot; modified=\&quot;2020-02-19T19:03:03.140Z\&quot; agent=\&quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:73.0) Gecko/20100101 Firefox/73.0\&quot; etag=\&quot;GliHjW2MOxX1Pu_HVt8K\&quot; version=\&quot;12.7.2\&quot;&gt;&lt;diagram id=\&quot;jgSpJcI_9LrdYe7ERkBn\&quot; name=\&quot;Page-1\&quot;&gt;7VhNj5swFPw1HCuBzVeOWZpuVWkrVTn07MQOuGtwZJwl6a/vI9gEApGyUthU2pBD7Hm2sWfe2ICDk3z/rMg2e5GUCQe5dO/grw5CXhiE8FcjhwaJZrgBUsVpA7knYMn/MtPTojtOWWmwBtJSCs23fXAti4KtdQ8jSsmq32wjBe0BW5KyAbBcEzFEf3OqswaNA/eEf2c8zeydPddEcmIbG6DMCJVVB8ILBydKSt2U8n3CRE1en5dvF6LtxBQr9DUdysUfz6t+xejH64q7ukzZIfoSmmHeiNiZFZvZ6oOlAIYBtqHyVGVcs+WWrOtIBYIDlulcQM2DYqmVfG1pggU+bbgQiRRSHUfCNGAx9duWnUiMVjgMIZIqQjmsqBObRdSNIoiZqTKl2f4iCV5LLeQkkznT6gBNTAds1TjYBPWbenUS1wtNm6wjLHJNIhOTUGk79olzKBja3yGBH04rgeyR2VxDaTZB/RuTJjxeN6I/7NOPvGBAfzzCPnanIn82IH+uteKrnYZd51wGWLge49uyVciCnVFrICJ4WkB1DUQxwJ9qGjlsM3MTyDml4pLASu4Kyup1uENF3eN1I33iM32sXTr6+KPumEifAH/k/nSFCS7ZaQpzxHc2R+APyF9qonkJmfswB0Kze5sj+ETmCPrk45GdqX326rLvT8b+8Nx+YWUJD4QPb4D2d/ZGOPFT1f/sDRRc6Y3pTg40YD+ReU4K+vAGyDM81z/UG9HYS18oahUof4NiWhefE0FKuPXcqSfShFfKRi0CE+j0GRnmJ8nZewf5dBli/WLfSuF19zxDZvFNMgSqp08Ox1jnww1e/AM=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script></div>
+<div class="section" id="atributos">
+<h2>Atributos<a class="headerlink" href="#atributos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Atributos de la clase. Configuran el objeto, su comportamiento.
+Pueden ser públicos (accesibles fuera del yuno),
+de lectura, escritura, persistentes, con estadística, y más.</p>
+</div>
+<div class="section" id="comandos">
+<h2>Comandos<a class="headerlink" href="#comandos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Comandos propios de la clase, para operar, configurar, o lo que tú quieras.
+Para ser usados principalmente desde consola.</p>
+<p>El módelo de mensajes puede ser request/response, o command (sin ack).</p>
+<p>Podríamos decir que juega el rol de canal de señalización.</p>
+</div>
+<div class="section" id="estadisticas">
+<h2>Estadísticas<a class="headerlink" href="#estadisticas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Monitoriza el objeto con las métricas que consideres.</p>
+</div>
+<div class="section" id="mensajes">
+<h2>Mensajes<a class="headerlink" href="#mensajes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Aquí podríamos decir que es el canal de datos.
+El modelo de mensajes: request/response, subscribe/publish, send.</p>
+<p>Intercambio de mensajes en json.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Niyamaka.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/introduccion.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

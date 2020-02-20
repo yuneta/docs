@@ -7,5 +7,6 @@ Yuneta
 .. toctree::
    :maxdepth: 2
 
+   introduccion.rst
    yuneta_install.rst
    documentation.rst
