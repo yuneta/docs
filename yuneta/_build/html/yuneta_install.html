@@ -107,15 +107,30 @@ cuelga directamente del directorio root <code class="docutils literal notranslat
 <p><span class="yuneta">Yuneta</span> no usa ningún otro directorio del sistemas de ficheros, tales como <code class="docutils literal notranslate"><span class="pre">/usr</span></code> o <code class="docutils literal notranslate"><span class="pre">/var</span></code>,
 a excepción de <code class="docutils literal notranslate"><span class="pre">/etc</span></code> que se usa para instalar
 el arranque autómatico del servicio del <span class="agent">agente</span>.</p>
-<p>Es aconsejable que el directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> disponga de su propia partición.</p>
+<p>Que el directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> disponga de su propia partición es a tu conveniencia.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
 <p>El directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> y todos sus subdirectorios deben pertener al usuario y grupo <strong>yuneta</strong>.</p>
+</div>
 </div>
 <div class="section" id="nodo-de-desarrollo">
 <h2><span class="node-dev">Nodo de desarrollo</span><a class="headerlink" href="#nodo-de-desarrollo" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Puedes instalar yuneta con estos scripts:</p>
-<p><a class="reference download internal" download="" href="_downloads/9c8b4cda7eee38d4fba23cf42a3456a9/install-yuneta-dependencies.sh"><code class="xref download docutils literal notranslate"><span class="pre">install-yuneta-dependencies</span></code></a>.</p>
-<p><a class="reference download internal" download="" href="_downloads/f73cf0ac1e7e2bedcceb25c468f8495b/install-yuneta-packages.sh"><code class="xref download docutils literal notranslate"><span class="pre">install-yuneta-packages</span></code></a>.</p>
-<p>Ejemplo de instalación en un nodo con <strong>Debian 9.5</strong> teniendo permisos de <em>root</em>.</p>
+<p>Puedes realizar la instalación de manera semi-automática o manual.
+Si no tienes mucha experiencia con Linux es aconsejable realizar
+la instalación manual para experimentar con los comandos.</p>
+<div class="section" id="instalacion-semi-automatica-con-scripts">
+<h3>Instalación semi-automática con scripts<a class="headerlink" href="#instalacion-semi-automatica-con-scripts" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Puedes instalar yuneta de manera más rápida con estos scripts.</p>
+<p>Baja este script y dale permisos de ejecución.</p>
+<p>Ejecútalo en la consola como usuario <strong>root</strong>.</p>
+<p><a class="reference download internal" download="" href="_downloads/9c8b4cda7eee38d4fba23cf42a3456a9/install-yuneta-dependencies.sh"><code class="xref download docutils literal notranslate"><span class="pre">install-yuneta-dependencies.sh</span></code></a></p>
+<p>Baja este script y dale permisos de ejecución.</p>
+<p>Ejecútalo en la consola como usuario <strong>yuneta</strong>.</p>
+<p><a class="reference download internal" download="" href="_downloads/f73cf0ac1e7e2bedcceb25c468f8495b/install-yuneta-packages.sh"><code class="xref download docutils literal notranslate"><span class="pre">install-yuneta-packages.sh</span></code></a></p>
+</div>
+<div class="section" id="instalacion-manual">
+<h3>Instalación manual<a class="headerlink" href="#instalacion-manual" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Instalación paso a paso en la consola.</p>
 <p>Si no tiene permisos de <em>root</em> contacte con su administrador de sistemas operativos.</p>
 <ul>
 <li><p>Como <strong>root</strong>: instalar paquetes útiles:</p>
@@ -133,9 +148,13 @@ el arranque autómatico del servicio del <span class="agent">agente</span>.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Como <strong>root</strong>: crear el directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> y darle la propiedad a <em>yuneta</em></p>
+<li><p>Como <strong>root</strong>: crear el directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> si no existe:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span>
-<span class="n">chown</span> <span class="n">yuneta</span><span class="p">:</span><span class="n">yuneta</span> <span class="o">/</span><span class="n">yuneta</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>IMPORTANTE</strong> Como <strong>root</strong>: darle la propiedad a <em>yuneta</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chown</span> <span class="n">yuneta</span><span class="p">:</span><span class="n">yuneta</span> <span class="o">/</span><span class="n">yuneta</span>
 </pre></div>
 </div>
 </li>
@@ -260,6 +279,7 @@ por ssh con el usuario <strong>yuneta</strong> para comprobar los cambios en el 
 </div>
 </li>
 </ul>
+</div>
 </div>
 <div class="section" id="compilacion-de-yuneta">
 <h2>Compilación de <span class="yuneta">Yuneta</span><a class="headerlink" href="#compilacion-de-yuneta" title="Enlazar permanentemente con este título">¶</a></h2>
