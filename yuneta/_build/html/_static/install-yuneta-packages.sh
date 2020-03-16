@@ -12,6 +12,12 @@ if [ "$(whoami)" != "yuneta" ]; then
 fi
 
 ################################################
+#   Share to group
+################################################
+chmod g+s /yuneta
+chmod g+w /yuneta
+
+################################################
 #   directories of yuneta
 ################################################
 mkdir -p /yuneta/bin
@@ -61,12 +67,6 @@ git clone https://github.com/yuno-store/emailsender /yuneta/development/yuneta/^
 git clone https://github.com/yuno-store/emu_device /yuneta/development/yuneta/^yunos/emu_device
 git clone https://github.com/yuno-store/logcenter /yuneta/development/yuneta/^yunos/logcenter
 git clone https://github.com/yuno-store/watchfs /yuneta/development/yuneta/^yunos/watchfs
-
-################################################
-#   Share directories
-################################################
-chmod g+s /yuneta
-chmod g+w /yuneta
 
 ################################################
 #   Compile
