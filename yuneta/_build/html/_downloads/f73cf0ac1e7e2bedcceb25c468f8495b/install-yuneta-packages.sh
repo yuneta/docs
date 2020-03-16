@@ -65,9 +65,8 @@ git clone https://github.com/yuno-store/watchfs /yuneta/development/yuneta/^yuno
 ################################################
 #   Share directories
 ################################################
-find /yuneta -type d -exec chmod g+s {} \;
-find /yuneta -type d -exec chmod g+w {} \;
-find /yuneta -type f -exec chmod g+w {} \;
+chmod g+s /yuneta
+chmod g+w /yuneta
 
 ################################################
 #   Compile
@@ -80,16 +79,17 @@ cd /yuneta/development/yuneta
 /bin/bash ./recompila.sh
 
 ################################################
-#   Share directories
-################################################
-find /yuneta -type d -exec chmod g+s {} \;
-find /yuneta -type d -exec chmod g+w {} \;
-find /yuneta -type f -exec chmod g+w {} \;
-
-################################################
 #   Install agent
 ################################################
 cd /yuneta/development/output/agent
 /bin/bash ./deploy_agent.sh
 cd /yuneta/agent/service
 sudo /bin/bash ./install-yuneta-service.sh
+
+################################################
+#   Share directories
+################################################
+find /yuneta -type d -exec chmod g+s {} \;
+find /yuneta -type d -exec chmod g+w {} \;
+find /yuneta -type f -exec chmod g+w {} \;
+
