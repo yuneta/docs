@@ -87,7 +87,7 @@ cd /yuneta/agent/service
 sudo /bin/bash ./install-yuneta-service.sh
 
 ################################################
-#   Share directories
+#   Share to group
 ################################################
 find /yuneta -type d -exec chmod g+s {} \;
 find /yuneta -type d -exec chmod g+w {} \;
