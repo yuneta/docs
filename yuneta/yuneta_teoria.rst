@@ -281,6 +281,8 @@ API de Yuneta
 
 :func:`gobj_child_by_index`
 
+:func:`gobj_child_size`
+
 
 :func:`gobj_load_persistent_attrs`
 
@@ -290,8 +292,6 @@ API de Yuneta
 
 :func:`gobj_list_persistent_attrs`
 
-
-:func:`gobj_child_size`
 
 :func:`gobj_write_attr`
 
