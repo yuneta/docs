@@ -185,7 +185,7 @@ excepto en la fase de instalación.</p>
 </div>
 <p>Si el servidor está en una red pública (Internet),
 puedes instalar la utilidad <a class="reference external" href="https://es.wikipedia.org/wiki/Fail2ban">fail2ban</a> para blindar el servidor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">fail2ban</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">fail2ban</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -200,12 +200,12 @@ puedes instalar la utilidad <a class="reference external" href="https://es.wikip
 <li><p>En Centos o similar:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sudo usermod -aG wheel yuneta # wheel group has sudo privileges</span>
 
-<span class="n">yum</span> <span class="n">group</span> <span class="n">install</span> <span class="s2">&quot;Development Tools&quot;</span>
+<span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">group</span> <span class="n">install</span> <span class="s2">&quot;Development Tools&quot;</span>
 <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">pcre</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">static</span> <span class="n">libuuid</span><span class="o">-</span><span class="n">devel</span> <span class="n">psmisc</span> <span class="n">xz</span><span class="o">-</span><span class="n">devel</span> <span class="n">centos</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">scl</span> <span class="n">libarchive</span><span class="o">-</span><span class="n">devel</span> <span class="n">procps</span><span class="o">-</span><span class="n">ng</span><span class="o">-</span><span class="n">devel</span> <span class="n">cmake</span>
 
 <span class="c1"># see https://www.howtoforge.com/tutorial/how-to-install-fail2ban-on-centos/</span>
-<span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
-<span class="n">yum</span> <span class="n">install</span> <span class="n">fail2ban</span> <span class="n">fail2ban</span><span class="o">-</span><span class="n">systemd</span>
+<span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+<span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">fail2ban</span> <span class="n">fail2ban</span><span class="o">-</span><span class="n">systemd</span>
 <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">fail2ban</span>
 <span class="n">systemctl</span> <span class="n">start</span> <span class="n">fail2ban</span>
 </pre></div>
@@ -379,7 +379,7 @@ suponiendo que has generado la version <code class="docutils literal notranslate
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">deb</span><span class="o">-</span><span class="n">build</span><span class="o">/</span><span class="n">amd64</span>
 <span class="n">scp</span> <span class="n">yuneta</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="mf">3.2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span> <span class="n">yuneta</span><span class="nd">@nodo100</span><span class="p">:</span>
 <span class="n">ssh</span> <span class="n">yuneta</span><span class="nd">@nodo100</span>
-<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">./</span><span class="n">yuneta</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="mf">3.2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="o">./</span><span class="n">yuneta</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="mf">3.2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
 </pre></div>
 </div>
 </li>

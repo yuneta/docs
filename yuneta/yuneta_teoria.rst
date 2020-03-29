@@ -290,7 +290,7 @@ API de Yuneta
 
 :func:`gobj_remove_persistent_attrs`
 
-:func:`gobj_list_persistent_attrs`
+:func:`gobj_get_writable_attrs`
 
 
 :func:`gobj_write_attr`
