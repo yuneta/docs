@@ -292,6 +292,8 @@ API de Yuneta
 
 :func:`gobj_get_writable_attrs`
 
+:func:`gobj_update_writable_attrs`
+
 
 :func:`gobj_write_attr`
 
