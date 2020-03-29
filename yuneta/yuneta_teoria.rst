@@ -245,6 +245,8 @@ TODO
 API de Yuneta
 -------------
 
+:func:`gobj_start_up`
+
 :func:`gobj_register_gclass`
 
 :func:`gobj_find_gclass`
@@ -278,6 +280,16 @@ API de Yuneta
 :func:`gobj_stop_tree`
 
 :func:`gobj_child_by_index`
+
+
+:func:`gobj_load_persistent_attrs`
+
+:func:`gobj_save_persistent_attrs`
+
+:func:`gobj_remove_persistent_attrs`
+
+:func:`gobj_list_persistent_attrs`
+
 
 :func:`gobj_child_size`
 
