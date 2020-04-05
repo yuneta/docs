@@ -203,11 +203,27 @@ puedes instalar la utilidad <a class="reference external" href="https://es.wikip
 <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">group</span> <span class="n">install</span> <span class="s2">&quot;Development Tools&quot;</span>
 <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">pcre</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">static</span> <span class="n">libuuid</span><span class="o">-</span><span class="n">devel</span> <span class="n">psmisc</span> <span class="n">xz</span><span class="o">-</span><span class="n">devel</span> <span class="n">centos</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">scl</span> <span class="n">libarchive</span><span class="o">-</span><span class="n">devel</span> <span class="n">procps</span><span class="o">-</span><span class="n">ng</span><span class="o">-</span><span class="n">devel</span> <span class="n">cmake</span>
 
+
 <span class="c1"># see https://www.howtoforge.com/tutorial/how-to-install-fail2ban-on-centos/</span>
 <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
 <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">fail2ban</span> <span class="n">fail2ban</span><span class="o">-</span><span class="n">systemd</span>
 <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">fail2ban</span>
 <span class="n">systemctl</span> <span class="n">start</span> <span class="n">fail2ban</span>
+</pre></div>
+</div>
+</li>
+<li><p>En Centos puede no estar instalardo el servidor que sincroniza la hora.
+Para instalar NTP (Network Time Protocol):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">ntp</span> <span class="n">ntpdate</span> <span class="n">ntp</span><span class="o">-</span><span class="n">doc</span>
+<span class="n">chkconfig</span> <span class="n">ntpd</span> <span class="n">on</span>
+<span class="n">ntpdate</span> <span class="n">pool</span><span class="o">.</span><span class="n">ntp</span><span class="o">.</span><span class="n">org</span>
+
+<span class="n">systemctl</span> <span class="n">start</span> <span class="n">ntpd</span>
+<span class="n">systemctl</span> <span class="n">enable</span> <span class="n">ntpd</span>
+<span class="n">systemctl</span> <span class="n">status</span> <span class="n">ntpd</span>
+
+<span class="n">ntpq</span> <span class="o">-</span><span class="n">p</span>     <span class="c1"># Para verificar la hora</span>
+<span class="n">date</span> <span class="o">-</span><span class="n">R</span>
 </pre></div>
 </div>
 </li>

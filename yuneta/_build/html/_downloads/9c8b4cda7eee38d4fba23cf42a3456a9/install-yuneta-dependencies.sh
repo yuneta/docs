@@ -33,6 +33,14 @@ elif [ -f "/usr/bin/yum" ]; then
     sudo yum -y group install "Development Tools"
     sudo yum -y install pcre-devel zlib-devel zlib-static libuuid-devel psmisc xz-devel centos-release-scl libarchive-devel procps-ng-devel cmake
 
+    sudo yum -y install ntp ntpdate ntp-doc
+    sudo chkconfig ntpd on
+    sudo ntpdate pool.ntp.org
+
+    sudo systemctl start ntpd
+    sudo systemctl enable ntpd
+    sudo systemctl status ntpd
+
     # see https://www.howtoforge.com/tutorial/how-to-install-fail2ban-on-centos/
     sudo yum -y install epel-release
     sudo yum -y install fail2ban fail2ban-systemd
