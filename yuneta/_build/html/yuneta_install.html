@@ -227,7 +227,12 @@ Para instalar NTP (Network Time Protocol):</p>
 </pre></div>
 </div>
 </li>
+<li><p>Para cambiar el core dump filename</p></li>
 </ul>
+<p>Editar el fichero <code class="docutils literal notranslate"><span class="pre">/etc/sysctl.conf</span></code> y añadir <code class="docutils literal notranslate"><span class="pre">kernel.core_pattern</span> <span class="pre">=</span> <span class="pre">core.%e</span></code></p>
+<p>Relanzar con <code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-p</span></code></p>
+<p>O también (?) añadir a <code class="docutils literal notranslate"><span class="pre">/proc/sys/kernel/core_pattern</span></code> la línea <code class="docutils literal notranslate"><span class="pre">core.%e</span></code>
+y en <code class="docutils literal notranslate"><span class="pre">/proc/sys/kernel/core_uses_pid</span></code> poner 0 si no quieres que se añada el pid.</p>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
 <p>A partir de aquí, los comandos hay que ejecutarlos como usuario <strong>yuneta</strong>.</p>
