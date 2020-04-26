@@ -154,7 +154,7 @@ excepto en la fase de instalación.</p>
 </div>
 </li>
 <li><p>Como <strong>root</strong>: crear el usuario <code class="docutils literal notranslate"><span class="pre">yuneta</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adduser</span> <span class="n">yuneta</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">useradd</span> <span class="n">yuneta</span> <span class="o">-</span><span class="n">Um</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 </pre></div>
 </div>
 </li>
@@ -165,6 +165,18 @@ excepto en la fase de instalación.</p>
 </li>
 <li><p>Como <strong>root</strong>: crear el directorio <code class="docutils literal notranslate"><span class="pre">/yuneta</span></code> si no existe:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">yuneta</span>
+</pre></div>
+</div>
+</li>
+<li><p>Añadir en .bashrc</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">umask</span> <span class="mi">0002</span>
+</pre></div>
+</div>
+</li>
+<li><p>Poner nombre host:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hostnamectl</span> <span class="nb">set</span><span class="o">-</span><span class="n">hostname</span> <span class="p">{</span><span class="n">name</span><span class="o">-</span><span class="n">here</span><span class="p">}</span>
+
+<span class="c1"># y añadir a /etc/hosts &lt;ip&gt; &lt;hostname&gt;</span>
 </pre></div>
 </div>
 </li>

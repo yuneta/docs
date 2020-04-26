@@ -5,18 +5,6 @@ set -e
 
 
 ################################################
-#   Create user/group yuneta
-################################################
-id -u yuneta >/dev/null 2>&1 || useradd yuneta
-
-if [ ! -d "/yuneta" ]; then
-    sudo mkdir /yuneta
-    sudo chown yuneta:yuneta /yuneta
-    sudo chmod 775 /yuneta/
-    sudo chmod g+s /yuneta/
-fi
-
-################################################
 #   install dev libraries
 ################################################
 if [ -f "/usr/bin/apt-get" ]; then
@@ -47,5 +35,19 @@ elif [ -f "/usr/bin/yum" ]; then
 
 else
     echo "apt-get or yum unknown"
+fi
+
+################################################
+#   Create user/group yuneta
+################################################
+if ! id -u yuneta > /dev/null 2>&1; then
+    sudo useradd yuneta -Um -s /bin/bash
+fi
+
+if [ ! -d "/yuneta" ]; then
+    sudo mkdir /yuneta
+    sudo chown yuneta:yuneta /yuneta
+    sudo chmod 775 /yuneta/
+    sudo chmod g+s /yuneta/
 fi
 
