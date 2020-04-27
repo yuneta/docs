@@ -245,6 +245,13 @@ Para instalar NTP (Network Time Protocol):</p>
 <p>Relanzar con <code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-p</span></code></p>
 <p>O también (?) añadir a <code class="docutils literal notranslate"><span class="pre">/proc/sys/kernel/core_pattern</span></code> la línea <code class="docutils literal notranslate"><span class="pre">core.%e</span></code>
 y en <code class="docutils literal notranslate"><span class="pre">/proc/sys/kernel/core_uses_pid</span></code> poner 0 si no quieres que se añada el pid.</p>
+<ul>
+<li><p>Para poner la zona horaria:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">timedatectl</span> <span class="nb">set</span><span class="o">-</span><span class="n">timezone</span> <span class="n">Europe</span><span class="o">/</span><span class="n">Madrid</span>
+</pre></div>
+</div>
+</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
 <p>A partir de aquí, los comandos hay que ejecutarlos como usuario <strong>yuneta</strong>.</p>
