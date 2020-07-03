@@ -1,8 +1,6 @@
 Teoria de Yuneta
 ================
 
-.. sectionauthor:: Maestro Niyamaka.
-
 Yuneta es
 ---------
 
