@@ -55,8 +55,8 @@ Modelos:
       El **cliente** conoce y se conecta al **servicio**.
 
 
-Mensajes
---------
+Intercambio de Mensajes
+-----------------------
 
 Las **entidades** intercambian **mensajes** a través de sus **relaciones** o **enlaces**.
 
@@ -68,6 +68,26 @@ Patrones de comportamiento:
     <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2020-09-06T21:19:54.663Z\&quot; agent=\&quot;5.0 (X11)\&quot; etag=\&quot;M1s8XYUlW0dld-rKjjSt\&quot; version=\&quot;13.6.6\&quot;&gt;&lt;diagram id=\&quot;jgSpJcI_9LrdYe7ERkBn\&quot; name=\&quot;Page-1\&quot;&gt;7Vptc9M4EP41+YhGq9XbfoRCgZvjgOkc3H10YjUxuHFrO7S9X3/rxkriOtCkNLQpzXSm9kr2OrvPPnpWzgAPTi5el8np5F2RhnygZHoxwJcDpUArNWj+ZHo5t1jfGsZllraTloaj7L/QGmVrnWVpqDoT66LI6+y0axwV02kY1R1bUpbFeXfacZF3vZ4m49AzHI2SvG/9nKX1ZG71Ri7tb0I2nkTPINuRkyRObg3VJEmL8xUTvhrgQVkU9fzo5OIg5E3wYlzm1x1+Z3TxYGWY1ptcEP6cvj2D4+H74YfyxT9/49u/3h09a+/yLcln7RduH7a+jBEYl8XstJ0WyjpcrIt7MozTZf+5YPFtGSahOAl1eclT4o0MzS+5jJk38/PzZbwRWneTlVij9IJWP7pNe5vy8cLVMip80AZmfZCqd18mH5Pk88dPX/+V793rL2d/vHlGNwcpTNPnDdr4bJQnVZWNBvhiUp+wn5fAh1VdFl/DQZEX5dUFeHho+bMYidhCtvQD+KPUhbQD4H6YV8IYUbsaxWgrQ57U2bcu7NeFsvXwocj48RZZVEBCInorpTagrTOdpCIKjagN48MAKnMtVVUxK0ehveUqhq958U44g2SiJ7+Nkzopx6HuObmCxCJet0cJbFBLfBsmLj55cT7J6nB0moyakXPmzi5exmWSZpz/FcSQS6VzPHac5fmKPTXBp3odxrwa4hXGtkNUr8r7mIqlqgSBM4qMkUZ7R6pXuV4LpZFHOB/SWI19BBIITdjcxBPfi/yOyhjUr6tjta917L3QxpAH0oCS09apMKeE1czG5JSTmjN/uzJW0glJnHPliCQ5qbbxsus61mtgYvO6qbzi6lss8WLPZkUceFZdiZfnPIGzfrEcbGTHvM6XtsMyhKNQZser0+y4+V/NhtWozIbZdBz98veYu57P6KGWy7W+mVPunAXiKK/DhiWRds54zi30SMBJQUzJBN4hFznYPnyBmZ0kWpQIiuLqcfccYJ844Gc5oFFdljHuJVmD19h6YwoALQDIovfKgjewhY9dE4B7wsjNGNGCNJc7knLOmhiiy9gfCdRM3+CJWz4Z+X1rkCgQgESsLQwqh5GaN/Oya5j4J5jcDBMlPCtX1njzWu/kj4Wfk6j5wGlvrXK3RYkXwGThpPe8gkCs38287BglsR++LzVxOhvmWTXZIzFBQlkC7dA1a5DqLgzohCHgJFueqUj3Gw7DM6zlSbrpT5ga7k9sqN+oI1zUouUO3bLAt06TRtNl7P1qGM26TuCR5u8yyjIuH2m57dIgtV3E9oEmyNwvuRZlGsq75dWf3Q7cgmlRcSINL4rcZqNR0F2clWKBjl5bLZEFnvS2h4SH09aZTbTYI6nUzZh2vwrZrlNJt9LSq5XzfXW9l1qapFjNt+3usF8JHzSS11hkIUxob6umkTs7Lz0oy9DxqLdys2M5HUH6BJQfvotxQjnvPEj06PS1dzGsrYUFQ8T+wEvO8+2Qwu03M4J3gAie2cRt5WXXQPn9tBuAEU3LA5a8NJKQHjLl63U7sb9Qu5XhbBaqem/VmyJhADRJqaVhjdVVbwBeSMvijptkb4BXiwes3vSdvWB/xKROSnCBAzUlSdrF8on5dk5oqR05ahZnvHb7bTZcPRiDDXEjO1LbeNkxpZt73kpLptX5Hrd7Tb8ATUOgGtlGsruxBtoKy6uGRUvKWh9flj/MnTXztLN2fWftgSz+fLr8Sdu88pc/DMRX/wM=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
     <script type="text/javascript" src="https://app.diagrams.net/js/viewer-static.min.js"></script>
 
+
+Datos en Mensajes
+-----------------
+
+El modelo de datos usado en los mensajes, tanto internamente como externalmente,
+tanto en persistencia como en transporte, es el de **clave**/**valor**.
+
+Yuneta puede añadir además el modelo **serie**/**tiempo** a los mensajes transportados.
+
+TODO: grafica node--[key:value]--node
+
+Si nombramos a las componentes:
+    node(id)--[key:value]--node(id)
+    node(id)--[id:value]--node(id)
+
+Codificación y Persistencia
+---------------------------
+
+Todos los modelos están representados en JSON, tanto en memoria como en disco,
+usando bases de datos **Jerárquicas** y **Gráficas**, de **Clave**/**Valor** y **Serie**/**Tiempo**.
 
 CRUDLU
 ------
@@ -81,19 +101,7 @@ Pero al añadir las **relaciones** entre entidades, nesitamos añadir las operac
 **CRUDLU**: (**Create**, **Read**, **Update**, **Delete**, **Link**, **Unlink**)
 
 
-Codificación y Persistencia
----------------------------
-
-Todos los modelos están representados en JSON, tanto en memoria como en disco,
-usando bases de datos **Clave**/**Valor** y **Serie**/**Tiempo**.
 
 
-Tipos de datos en JSON:
 
-    - number (integer, real)
-    - boolean (true, false)
-    - string
-    - null
-    - dictionary (object)
-    - list (array)
 
