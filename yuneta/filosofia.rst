@@ -55,8 +55,8 @@ Modelos:
       El **cliente** conoce y se conecta al **servicio**.
 
 
-Intercambio de Mensajes
------------------------
+Transporte de Mensajes
+----------------------
 
 Las **entidades** intercambian **mensajes** a través de sus **relaciones** o **enlaces**.
 
@@ -69,25 +69,36 @@ Patrones de comportamiento:
     <script type="text/javascript" src="https://app.diagrams.net/js/viewer-static.min.js"></script>
 
 
-Datos en Mensajes
------------------
+Contenido de Mensajes
+---------------------
 
-El modelo de datos usado en los mensajes, tanto internamente como externalmente,
+El modelo de datos usado en el contenido de los mensajes, tanto internamente como externalmente,
 tanto en persistencia como en transporte, es el de **clave**/**valor**.
+
+.. raw:: html
+
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2020-09-07T08:07:34.406Z\&quot; agent=\&quot;5.0 (X11)\&quot; etag=\&quot;0MEsYJx_9QTOfOsSnzzm\&quot; version=\&quot;13.6.6\&quot;&gt;&lt;diagram id=\&quot;jgSpJcI_9LrdYe7ERkBn\&quot; name=\&quot;Page-1\&quot;&gt;7Vhdb9owFP01eQQ5/owfgTZFk6qNIa3aY0YMSRswdUyB/fo52A4JsI5p7fqhSkgk515fX99zbF8lQIP55koly+xapqIIIEg3AboIIAwxhEH1A+nWIjRywEzlqYXAHhjnP4Ub6dFVnorSYRbSUhY6X7bBiVwsxES3sEQpuW67TWWRtoBlMhNHwHiSFMfoTZ7qzKIRAXt8KPJZ5mcOgbPME+/sgDJLUrluQOgyQAMlpbZP881AFFXx2nWJf2OtE1Nioc8ZkI06eKq3/V4Rr29GcX/Ivw473EZ5SIqVW3AAaWHi9afShDVZ660rBb1fSW/olDuiesbBpLDZG6sSJ5P2gFgJMRYqnzbd6Gz3T/pVej07P7nwk5tV2Pmdmy1gnQrUYlPh6yzXYry0E66NAA2W6Xlh3kLzWGol72raUB2oWTNXxgehTMwG5Gp4JeRcaLU1Ls6KMOtyThiOGGSIeH07eYcEGmuEKQaIUQKiyJrXe+0w0OWAhDyMzPCIh9R6ZE0VsS7jAFEEUAg5I07OTsqzOqc92+bBEf4X5Ps99lLsm+TO5Nssxmx48WfKZypJc0PuQBZS7cai6TTllFap50XRwqdwMqll0rCk9Acl9GnkYk68tkAwMgKhDGAcAsyO1BHhLsSIcYggAYRidKwOHnYxR5ATox4CjdqeSx7hhzyeWx6YVecFhYBRhjlGhLxZtcATajnkaZH2qjvZvE2KpCxzW99EaQ8v5EKcOsQb5Y9jSneEHR/vu1BxXiV+AR4jqJQr5YT4+NFoAs6EPmOTiLTVRxwT3mDNNw9NmjymRJHo/KHdfZwiy83wRea7rehvpwMBIc+CD2FX7kY1u4WDQBi0A0F2EMhW5ijQTjv1ss+SU3l9m42S5Gb07e47+Myubu8/DTt+HS/YmdyJ7XtqTfBBZ8Loa25NPq6e/92ZoOZVQznnr/m2QR/6eOHW5E3Jhb6r3uTM1gS96s4E+obxXzuTkD5VZ2Je959jrPv+oxa6/AU=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+    <script type="text/javascript" src="https://app.diagrams.net/js/viewer-static.min.js"></script>
 
 Yuneta puede añadir además el modelo **serie**/**tiempo** a los mensajes transportados.
 
-TODO: grafica node--[key:value]--node
+.. raw:: html
 
-Si nombramos a las componentes:
-    node(id)--[key:value]--node(id)
-    node(id)--[id:value]--node(id)
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2020-09-07T07:47:25.417Z\&quot; agent=\&quot;5.0 (X11)\&quot; etag=\&quot;gsAqCyTfIaZaTPhRimG9\&quot; version=\&quot;13.6.6\&quot;&gt;&lt;diagram id=\&quot;jgSpJcI_9LrdYe7ERkBn\&quot; name=\&quot;Page-1\&quot;&gt;7Vhbb9owFP41eQQltnPxY6FN0aRqY0ir9ugmDklrMHVMgf36OdjOhdCVab1ORUgkn4+Pj8/32ecIB44X20tBVvkVTylzgJtuHXjuAOAhAJzq66Y7jQSRAeaiSDXkNsCs+EXNTIuui5SWBtOQ5JzJYtUFE75c0kR2MCIE33TNMs7SDrAic9oDZglhffS6SGWu0ch3G3xCi3luV/ZcM7Ig1tgAZU5SvmlB8MKBY8G51E+L7ZiyKnndvMSPjNaBCbqUp0zIpwOUyd3ojMWb62k8muDvkwHWXh4IW5sNOyBgyt8o48qtilruTCqC+zW3A4NyT9SZMlAhbJvBKsUk6U6IBaUzKoqsbRbM97/+SIUHxnbRGzsgLaL2U4N6QR2rf96y0LEaI53sOmwg6bbCN3kh6Wylg9sosSoslwum3jz1WErB72qKYe3ogQrl4NGUezWR6gRQvqBS7JSJmQChr6cY8Xs+1O+bRkqePSF5W0bhMDTUECPgee294Vg9GJr/gnJ7st6K84rw05hTm1HHnD5NXlYwNuaMi/08mBIaZUlNamskSCJ6kz0Pueou65KL4BDjIHQR8lwU9oiO0BAgGGIAge/6AYJ92rE3RBgC7PsR9gHG0UtJwPuUwHNIAIWgohy4YRAijKDvf1hFgCOKOORimZ5VFVW9JYyUZaHzS4S08JIv6bFrtZX+OA7U5+iFu3cVF1Xg525NEE17BfqAHhUkXwujvj/feWqFOZVPnow+4S3WbOlv02QxQRmRxUM34GNkmRW+8WJ/3Gy9OBAQtCxYF3qjZla71h84Qm7XEQgPHOlE9BzttVNv+yQ5lVe3+ZSQ6+mPu5/u1/Dy9v7LZGD38YZ9xR3dvevG4oiMe3fR440FwB1+0bG+InrlvuKzprxEWwHbNSTAGL/nMgI/NfAKfcWHkkTwfzcWJ/YV8D21FcB2e//aVnjBc7UV6rX5J0SbN/8nwYvf&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+    <script type="text/javascript" src="https://app.diagrams.net/js/viewer-static.min.js"></script>
 
 Codificación y Persistencia
 ---------------------------
 
 Todos los modelos están representados en JSON, tanto en memoria como en disco,
 usando bases de datos **Jerárquicas** y **Gráficas**, de **Clave**/**Valor** y **Serie**/**Tiempo**.
+
+Ejemplo de topologías:
+
+.. raw:: html
+
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2020-09-07T08:03:00.036Z\&quot; agent=\&quot;5.0 (X11)\&quot; etag=\&quot;-g5nWAloUwzBcbZZ-DQh\&quot; version=\&quot;13.6.6\&quot;&gt;&lt;diagram id=\&quot;jgSpJcI_9LrdYe7ERkBn\&quot; name=\&quot;Page-1\&quot;&gt;7Z1Rc9o4EMc/TR6rkbRaafV4TZvry81crw99dsEJzJE4Q0iT3Ke/NbbAMsG4NI4Bk2RGIBvLaH9a/XclyAVc3j7/OU/uJ39l43R2oeX4+QI+XWitjNYX+Z8cvxQ1lsqKm/l0XFTJdcW36X9p+cpQ+zgdpw9lXVG1yLLZYnofV46yu7t0tIjqkvk8e4pPu85m46jiPrlJNyq+jZLZZu336XgxKWoJ5br+Szq9mYSWlSyP3Cbh5LLiYZKMs6dKFXy+gMt5li2KR7fPl+ks77y4X662HF3d2Dy9W7R5weTrB3O9ePn4x+zq6fvXq49f/D9fPmgoLvMzmT2W77i828VL6IKbefZ4X56Wzhfp82sdn/wIp8vNG1Ort8ucpNltupi/8CnlhbwrXlESYmzx9Gnd3SqcMql2taXSzKWJb1ZXXvcCPyg74hc6JbDX1Cl8GUaQn3x8mkwX6bf7ZJQfeeJRwHWTxS23+Enxw+vpbHaZzbL58nVwjfkv1z8s5tm/aeWIXf7wkZt5Mp5y31WO/Vj+8rGtZqh2d4OltxpBKSUMSaulQpRAzkZGsSQksR2Uo2WpN2xkSChpLCpltfPyFYMZI/iyTmnQRdmV+YZnPQcCJPcrIinwCLhpHi8ssPW0N+jAGti0D0o+RSqwnorSdmQg28JAd+M/cu/Nz0az5OFhOlp2ejJfhOq77C6NbbVhk6ur0ibFkeC/IVzqaprf9ye5skw63pgMWtmFbz17nI/S3VByszdp0wXVFkNXTBnmnth2Rd08nSWL6c/4XbxmwLKFv7Mpv78VR0SioMMoSaidipyAMlIAAVrFZ+RlfPmiD8orVieiWiMsCkQVVkNRK44EzwHo+EBRxq0UPbjRyhLEVX/9hvNoMSGemvcAJ4wyThOLM+Ukmtj1e7Hy2MvyNde/eqm2gK/5fhBOW8mOyhclbkfz95y/OTuXHcKmL+fiUaDhQS/Ba8cawtcVhidHwIRI9j7g93Mu6AVaS1J5w8DW/JeSghQ3xXcBzLsz7+tacECuJXQ5WDa6Y9Gh5bI0G94DUChtJHDk5Byy3TYBBNam4QLLsitlotpIk1MxURgxWliya+leGzNHZkA3PAOys+TgrJRS7EDDWz5SC9IALWgVh8boLXmfyylpj9qCfogSDNpqMOxTg1kj/JoSiCMvDwJpqb58Ue4nwcgIRZIDNw/OAsUyz3mhOHj0HCWwBkRXg7BjCabbZPaGi6btE01W7lICz2bGSS9XAcBKu6Pwnrl0xGRpopp2bwtnnnuQ6I0D1EDaxiNAAbCTtFJZjkIAPdVSzF3j2SZ1eXJ4yrZ4uj7xdBy9Oo+skxlCnqNrIksroTwqdnj59Eqo98PTOSG98pajU9AkZW0QGCN4qlfWec0uXKn3zY0FGs94bheufeGpwAhHrP+JrPHoaknVnE/jyVpv2amx4Nw3dwtSkHZWe0fEE7mJ1+5yQIGQ8bV5iofM+wIKHS7cjZOUrkevxg4jSn9cvx47uDSxqdwgWbeNJppXTo1TQsbxupaa58lKrFByfqCxAnS4WHewFpOVbEs8fLBmvM11vIMyXpv54OSMt060hOk3WK8+9A47TIcOV7oO13rrJEvsNw3GttMHPvR6XubS+0kx1VJ0mbaiC3pd0TIahF2OdKucdFBLnXsSjuNYyarLgdR7RqwcBgiq5FOoJrm8iTMq7yy52ixqDQHELc7nvUDkuFFLQpblzqxW4AMihAwiAnu/fHOXC7HrL5MIOdBbkyf5PoAekyfQ87aijkkM+bDdJOp+SUQBPP+BJq+MJohJVFIgGqW85xAUtash0ppEB8JV8ySxEstziT3mSaDNIuQQSOx1L5vRViinCYklO1Mg421NngWfZT+Wg+itszVE2pII7HmxmhCJgc9JjBIi7wtim5W4E5L4PCexit8m8Vn/R6uoZV8cqMI3A8tlNdtOWTymtFZgayjG4zn9yBORZmDZkKXFTiURadpkQ07OeJVEZGy848pDmg63xR6u8U4kD2lOPOhuu3XG9LqrK0//MA7WSARyWFv79TqPuTkaR6vRKr9nzM2kCtLEN628gtr+B2cFs4b5PmKF5CTEbXQc55gTD7h1WwpNnxSi4oBb+/Cjax/rUsLp8OkfLvfcgMChdNV7KvMrjXSNYZuty0eMYduPGZle8z6omzCkN8LQNWG4o5GuMex5/3XXGLZdkimC8N4whCYM/RthSE0Y7mikYwxxYAksDqRPJvmIA9uW1Wy7I0s+hr3HJ+r/Q75gp//HXveGDF4NY5uM6hFjaI4Dw6Gr4fBtFqeKYdsMFfa6Qemshk98n1zbFFXPGJomDJV8Iw59E4e7WukaxHPG/pwrPQB1eE7ZH8DC0VkdnlP2h5Arzb0hhPSJCZmRsJNI0xu6wxXsYYi2bKVrEM9J+0NZO9oOIrwRiK4RxB2tdAyi7fkrUg7GI/arD6ERRPNGIFIjiDta6RrEnr8M5WAUYr8e0TSCiG8Eom8EcUcre4PIT9ffv1+cvv4vBvD5fw==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+    <script type="text/javascript" src="https://app.diagrams.net/js/viewer-static.min.js"></script>
 
 CRUDLU
 ------

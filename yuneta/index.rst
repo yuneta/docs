@@ -18,6 +18,6 @@ Indice
 .. toctree::
    :maxdepth: 2
 
-   introduccion.rst
+   filosofia.rst
    yuneta_install.rst
    documentation.rst
