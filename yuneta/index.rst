@@ -11,10 +11,6 @@ Licencia `MIT <https://opensource.org/licenses/MIT>`_.
 Código disponible en `GObj-Ecosistema <https://github.com/gobj-ecosistema>`_,
 `Yuneta <https://github.com/yuneta>`_ y `Yuno Store <https://github.com/yuno-store>`_.
 
-
-Indice
-======
-
 .. toctree::
    :maxdepth: 2
 

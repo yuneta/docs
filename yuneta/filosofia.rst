@@ -17,12 +17,14 @@ existentes entre dichas entidades.
 Entidades
 ---------
 
-Describimos las **entidades** con el modelo **Role**/**instancia**.
+Describimos las **entidades** con el modelo
+
+    - **Role**/**instancia**
 
 Este modelo también lo podemos nombrar como:
 
     - **Clase**/**objeto**
-    - **Esquema**/**registro**
+    - **Tabla**/**registro**
     - **Grupo**/**elemento**
 
 .. raw:: html
