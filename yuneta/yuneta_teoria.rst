@@ -341,6 +341,8 @@ API de Yuneta
 
 :func:`gobj_publish_event`
 
+:func:`gobj_parent`
+
 :func:`gobj_full_name`
 
 :func:`gobj_short_name`
