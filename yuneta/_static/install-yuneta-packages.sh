@@ -68,6 +68,7 @@ git clone https://github.com/yuno-store/emailsender /yuneta/development/yuneta/^
 git clone https://github.com/yuno-store/emu_device /yuneta/development/yuneta/^yunos/emu_device
 git clone https://github.com/yuno-store/logcenter /yuneta/development/yuneta/^yunos/logcenter
 git clone https://github.com/yuno-store/watchfs /yuneta/development/yuneta/^yunos/watchfs
+git clone https://github.com/yuno-store/controlcenter /yuneta/development/yuneta/^yunos/controlcenter
 
 ################################################
 #   Compile
