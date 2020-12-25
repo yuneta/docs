@@ -40,7 +40,6 @@ Ejemplos
 
         Sistema cerrado con diferentes subdominios, por ejemplo una organización pública.
 
-Esta :yuneta:`Yuneta` kks
 
 Terminos del Reino
 ------------------
