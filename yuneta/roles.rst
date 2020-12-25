@@ -19,3 +19,7 @@
 .. role:: run-time
 
 .. role:: large
+
+.. role:: realm_role
+.. role:: realm_name
+.. role:: realm_domain

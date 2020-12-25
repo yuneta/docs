@@ -1,7 +1,68 @@
+.. include:: roles.rst
+
 Filosofía
 =========
 
 En Yuneta buscamos modelos (patterns) que nos permitan representar y visualizar todo tipo de realidades.
+
+Reinos
+======
+
+Los sistemas de Yuneta se organizan en reinos.
+
+Interface del reino de Yuneta con la Web (url)
+----------------------------------------------
+
+El interface entre los reinos y las urls es: ::
+
+    https://{Realm Name}.{Realm Role}.{environment}/{Realm Domain}
+
+    ó
+
+    https://{name}.{role}.{environment}/{domain}
+
+Ejemplos
+
+    - https://demo.saludatos.ovh/chris@gmail.com
+
+        Sistema abierto donde usuarios anónimos pueden crearse 1 o varios reinos.
+
+        El nombre del dominio, es decir el propietario, es el user invitado.
+
+    - https://mulesol.siguerastro.com/mulesol
+
+        Sistema cerrado, por ejemplo, el servicio de una empresa.
+        Aquí el owner define qué usuarios pueden entrar.
+
+        La parte final de la url sobra (dominio), porque es redundante.
+
+    - https://comunidad-madrid.saludatos.es/hospital-princesa
+
+        Sistema cerrado con diferentes subdominios, por ejemplo una organización pública.
+
+Esta :yuneta:`Yuneta` kks
+
+Terminos del Reino
+------------------
+
+Los reinos tiene las propiedades de :realm_role:`Role` y :realm_name:`Name`.
+
+El :realm_role:`Role` define la clase del reino.
+
+El :realm_name:`Name` es una instancia de la clase.
+
+La instancia del reino, tiene otra propiedad: :realm_domain:`Domain`,
+que define quién es el propietario del reino.
+
+Al entrar en un sistema de Yuneta, si no se especifica el dominio,
+el sistema te mostrará un lista de dominios donde estás definido,
+para que elijas a qué dominio quieres entrar,
+eso en el caso de que estés definido en mas de un reino.
+
+El propietario de un reino puede añadir a su reino a otros usuarios
+y definir qué tipo de autorizaciones tienen.
+
+
 
 Modelo Entidad/Relación
 -----------------------

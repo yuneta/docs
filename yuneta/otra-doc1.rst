@@ -1,4 +1,4 @@
-.. include:: colors.rst
+.. include:: roles.rst
 
 .. |pagebreak| raw:: html
 
