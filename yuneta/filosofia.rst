@@ -85,15 +85,10 @@ El :realm_name:`Name` es una instancia de la clase.
 La instancia del reino, tiene otra propiedad: :realm_domain:`Domain`,
 que define quién es el propietario del reino.
 
-Al entrar en un sistema de Yuneta, si no se especifica el dominio,
-el sistema te mostrará un lista de dominios donde estás definido,
-para que elijas a qué dominio quieres entrar,
-eso en el caso de que estés definido en mas de un reino.
+La url del frontend define el reino (dominio) al que se quiere entrar.
 
 El propietario de un reino puede añadir a su reino a otros usuarios
 y definir qué tipo de autorizaciones tienen.
-
-
 
 Modelo Entidad/Relación
 -----------------------
