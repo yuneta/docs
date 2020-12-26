@@ -29,6 +29,15 @@ Ejemplos
 
         El nombre del dominio, es decir el propietario, es el user invitado.
 
+        ::
+
+            https://demo.saludatos.ovh/chris@gmail.com
+
+                - realm_domain  = chris@gmail.com   (domain,owner)
+                - realm_role    = saludatos         (service class)
+                - realm_name    = demo              (service instance)
+                - environment   = ovh               (staging)
+
     - https://mulesol.siguerastro.com/mulesol
 
         Sistema cerrado, por ejemplo, el servicio de una empresa.
@@ -36,12 +45,29 @@ Ejemplos
 
         La parte final de la url sobra (dominio), porque es redundante.
 
+        ::
+
+            https://mulesol.siguerastro.com/mulesol
+
+                - realm_domain  = mulesol           (domain,owner)
+                - realm_role    = siguerastro       (service class)
+                - realm_name    = mulesol           (service instance)
+                - environment   = com               (production)
+
     - https://comunidad-madrid.saludatos.es/hospital-princesa
 
         Sistema cerrado con diferentes subdominios, por ejemplo una organización pública.
 
+        ::
 
-Terminos del Reino
+            https://comunidad-madrid.saludatos.es/hospital-princesa
+
+                - realm_domain  = hospital-princesa (domain,owner)
+                - realm_role    = saludatos         (service class)
+                - realm_name    = comunidad-madrid  (service instance)
+                - environment   = es                (production)
+
+Términos del Reino
 ------------------
 
 Los reinos tiene las propiedades de :realm_role:`Role` y :realm_name:`Name`.
