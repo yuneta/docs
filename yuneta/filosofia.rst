@@ -6,9 +6,15 @@ Filosofía
 En Yuneta buscamos modelos (patterns) que nos permitan representar y visualizar todo tipo de realidades.
 
 Reinos
-======
+------
 
 Los sistemas de Yuneta se organizan en reinos.
+
+Los reinos tienen tres propiedades:
+
+    - Role      (clase del reino)
+    - Name      (instancia del reino)
+    - Domain    (owner del reino)
 
 Interface del reino de Yuneta con la Web (url)
 ----------------------------------------------
