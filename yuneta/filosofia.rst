@@ -14,32 +14,31 @@ Los reinos tienen tres propiedades:
 
     - Role      (clase del reino)
     - Name      (instancia del reino)
-    - Domain    (owner del reino)
+    - Owner     (dueño del reino)
 
 Interface del reino de Yuneta con la Web (url)
 ----------------------------------------------
 
 El interface entre los reinos y las urls es: ::
 
-    https://{Realm Name}.{Realm Role}.{environment}/{Realm Domain}
+    https://{Realm Name}.{Realm Role}.{environment}/{Realm Owner}
 
     ó
 
-    https://{name}.{role}.{environment}/{domain}
+    https://{name}.{role}.{environment}/{owner}
 
 Ejemplos
 
     - https://demo.saludatos.ovh/chris@gmail.com
 
-        Sistema abierto donde usuarios anónimos pueden crearse 1 o varios reinos.
-
-        El nombre del dominio, es decir el propietario, es el user invitado.
+        Sistema abierto donde usuarios anónimos pueden crearse 1 o mas reinos,
+        lo que el sistema permita.
 
         ::
 
             https://demo.saludatos.ovh/chris@gmail.com
 
-                - realm_domain  = chris@gmail.com   (domain,owner)
+                - realm_owner   = chris@gmail.com   (owner)
                 - realm_role    = saludatos         (service class)
                 - realm_name    = demo              (service instance)
                 - environment   = ovh               (staging)
@@ -47,15 +46,15 @@ Ejemplos
     - https://mulesol.siguerastro.com/mulesol
 
         Sistema cerrado, por ejemplo, el servicio de una empresa.
-        Aquí el owner define qué usuarios pueden entrar.
+        Aquí el owner define qué usuarios están autorizados a entrar.
 
-        La parte final de la url sobra (dominio), porque es redundante.
+        La parte final de la url sobra (owner), porque es redundante.
 
         ::
 
             https://mulesol.siguerastro.com/mulesol
 
-                - realm_domain  = mulesol           (domain,owner)
+                - realm_owner   = mulesol           (owner)
                 - realm_role    = siguerastro       (service class)
                 - realm_name    = mulesol           (service instance)
                 - environment   = com               (production)
@@ -68,7 +67,7 @@ Ejemplos
 
             https://comunidad-madrid.saludatos.es/hospital-princesa
 
-                - realm_domain  = hospital-princesa (domain,owner)
+                - realm_owner   = hospital-princesa (owner)
                 - realm_role    = saludatos         (service class)
                 - realm_name    = comunidad-madrid  (service instance)
                 - environment   = es                (production)
@@ -82,10 +81,10 @@ El :realm_role:`Role` define la clase del reino.
 
 El :realm_name:`Name` es una instancia de la clase.
 
-La instancia del reino, tiene otra propiedad: :realm_domain:`Domain`,
+La instancia del reino, tiene otra propiedad: :realm_owner:`Owner`,
 que define quién es el propietario del reino.
 
-La url del frontend define el reino (dominio) al que se quiere entrar.
+La url del frontend define el reino al que se quiere entrar.
 
 El propietario de un reino puede añadir a su reino a otros usuarios
 y definir qué tipo de autorizaciones tienen.
