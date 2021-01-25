@@ -60,6 +60,7 @@ git clone https://github.com/yuneta/yuno-skeleton /yuneta/development/yuneta/^yu
 git clone https://github.com/yuneta/ygclass-rename /yuneta/development/yuneta/^yuneta/ygclass-rename
 git clone https://github.com/yuneta/docs /yuneta/development/yuneta/^yuneta/docs
 git clone https://github.com/yuneta/yscapec /yuneta/development/yuneta/^yuneta/yscapec
+git clone https://github.com/yuneta/mxgraph-js.git /yuneta/development/yuneta/^yuneta/mxgraph-js
 
 ################################################
 #   Clone yuno-store
