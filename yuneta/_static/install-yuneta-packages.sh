@@ -45,6 +45,7 @@ git clone https://github.com/yuneta/c-core /yuneta/development/yuneta/^yuneta/c-
 git clone https://github.com/yuneta/c-rc_sqlite /yuneta/development/yuneta/^yuneta/c-rc_sqlite
 git clone https://github.com/yuneta/js-core /yuneta/development/yuneta/^yuneta/js-core
 git clone https://github.com/yuneta/c-tls /yuneta/development/yuneta/^yuneta/c-tls
+git clone https://github.com/yuneta/c-postgres /yuneta/development/yuneta/^yuneta/c-postgres
 git clone https://github.com/yuneta/packages /yuneta/development/yuneta/^yuneta/packages
 git clone https://github.com/yuneta/tests-y /yuneta/development/yuneta/^yuneta/tests-y
 git clone https://github.com/yuneta/web-skeleton3 /yuneta/development/yuneta/^yuneta/web-skeleton3
