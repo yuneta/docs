@@ -73,6 +73,7 @@ git clone https://github.com/yuno-store/logcenter /yuneta/development/yuneta/^yu
 git clone https://github.com/yuno-store/watchfs /yuneta/development/yuneta/^yunos/watchfs
 git clone https://github.com/yuno-store/controlcenter /yuneta/development/yuneta/^yunos/controlcenter
 git clone https://github.com/yuno-store/sgateway /yuneta/development/yuneta/^yunos/sgateway
+git clone https://github.com/yuno-store/dba_postgres /yuneta/development/yuneta/^yunos/dba_postgres
 
 ################################################
 #   Compile
