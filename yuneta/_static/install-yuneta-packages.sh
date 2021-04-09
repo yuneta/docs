@@ -92,11 +92,3 @@ cd /yuneta/development/output/agent
 /bin/bash ./deploy_agent.sh
 cd /yuneta/agent/service
 sudo /bin/bash ./install-yuneta-service.sh
-
-################################################
-#   Share to group
-################################################
-find /yuneta -type d -exec chmod g+s {} \;
-find /yuneta -type d -exec chmod g+w {} \;
-find /yuneta -type f -exec chmod g+w {} \;
-
