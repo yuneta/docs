@@ -81,6 +81,7 @@ git clone https://github.com/yuno-store/dba_postgres /yuneta/development/yuneta/
 cp -a /yuneta/development/yuneta/^yuneta/packages/yuneta/* /yuneta/development/yuneta
 cp -a /yuneta/development/yuneta/^yuneta/packages/recompila.sh /yuneta/development/yuneta
 cp -a /yuneta/development/yuneta/^yuneta/packages/compila.sh /yuneta/development/yuneta
+cp -a /yuneta/development/yuneta/^yuneta/packages/update_scripts.sh /yuneta/development/yuneta
 cp -a /yuneta/development/yuneta/^yuneta/packages/yuneta-pull-from-github.sh /yuneta/development/yuneta
 cd /yuneta/development/yuneta
 /bin/bash ./recompila.sh
