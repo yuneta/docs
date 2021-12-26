@@ -76,6 +76,9 @@ git clone https://github.com/yuno-store/dba_postgres /yuneta/development/yuneta/
 ################################################
 #   Compile
 ################################################
+# if it's an update, get new compila,recompila
+cd /yuneta/development/yuneta/^yuneta/packages
+git pull
 
 #  Exit immediately if a command exits with a non-zero status.
 set -e
