@@ -62,6 +62,7 @@ git clone https://github.com/yuneta/yscapec /yuneta/development/yuneta/^yuneta/y
 git clone https://github.com/yuneta/mxgraph-js.git /yuneta/development/yuneta/^yuneta/mxgraph-js
 git clone https://github.com/yuneta/ytests /yuneta/development/yuneta/^yuneta/ytests
 git clone https://github.com/yuneta/extractjson /yuneta/development/yuneta/^yuneta/extractjson
+git clone https://github.com/yuneta/yclone-project /yuneta/development/yuneta/^yuneta/yclone-project/
 
 ################################################
 #   Clone yuno-store
