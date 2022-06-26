@@ -63,6 +63,7 @@ git clone https://github.com/yuneta/mxgraph-js.git /yuneta/development/yuneta/^y
 git clone https://github.com/yuneta/ytests /yuneta/development/yuneta/^yuneta/ytests
 git clone https://github.com/yuneta/extractjson /yuneta/development/yuneta/^yuneta/extractjson
 git clone https://github.com/yuneta/yclone-project /yuneta/development/yuneta/^yuneta/yclone-project/
+git clone https://github.com/yuneta/yuno_agent22 /yuneta/development/yuneta/^yuneta/yuno_agent22/
 
 ################################################
 #   Clone yuno-store
