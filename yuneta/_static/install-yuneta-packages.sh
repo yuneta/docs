@@ -34,6 +34,7 @@ git clone https://github.com/gobj-ecosistema/tests-g.git /yuneta/development/yun
 git clone https://github.com/gobj-ecosistema/stats.git /yuneta/development/yuneta/^gobj-ecosistema/stats
 git clone https://github.com/gobj-ecosistema/timeranger.git /yuneta/development/yuneta/^gobj-ecosistema/timeranger
 git clone https://github.com/gobj-ecosistema/ytls.git /yuneta/development/yuneta/^gobj-ecosistema/ytls
+git clone https://github.com/gobj-ecosistema/rxspencer.git /yuneta/development/yuneta/^gobj-ecosistema/rxspencer
 
 ################################################
 #   Clone yuneta
