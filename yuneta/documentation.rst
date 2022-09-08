@@ -15,3 +15,4 @@ Documentación
    presentacion2.rst
    presentacion3.rst
    presentacion4.rst
+   presentacion_canbus.rst
