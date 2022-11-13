@@ -65,6 +65,7 @@ git clone https://github.com/yuneta/ytests /yuneta/development/yuneta/^yuneta/yt
 git clone https://github.com/yuneta/extractjson /yuneta/development/yuneta/^yuneta/extractjson
 git clone https://github.com/yuneta/yclone-project /yuneta/development/yuneta/^yuneta/yclone-project/
 git clone https://github.com/yuneta/yuno_agent22 /yuneta/development/yuneta/^yuneta/yuno_agent22/
+git clone https://github.com/yuneta/w2ui /yuneta/development/yuneta/^yuneta/w2ui/
 
 ################################################
 #   Clone yuno-store
