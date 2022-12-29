@@ -13,6 +13,7 @@ if [ -f "/usr/bin/apt-get" ]; then
 #
     sudo apt -y install vim rsync tree sudo ssh curl fail2ban
     sudo apt -y install autotools-dev automake autogen libtool debmake cmake gettext mercurial git psmisc liblzma-dev zlib1g-dev libpcre3-dev libcurl4-openssl-dev libldap2-dev libidn11-dev libidn2-0-dev librtmp-dev libprocps-dev uuid-dev libarchive-dev libpq-dev can-utils libsocketcan2 libsocketcan-dev
+    sudo apt -y install clang libc++-dev libc++abi-dev libstdc++-12-dev
 
 elif [ -f "/usr/bin/yum" ]; then
 #
@@ -50,4 +51,3 @@ if [ ! -d "/yuneta" ]; then
     sudo chmod 775 /yuneta/
     sudo chmod g+s /yuneta/
 fi
-
