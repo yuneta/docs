@@ -60,7 +60,6 @@ git clone https://github.com/yuneta/yuno-skeleton /yuneta/development/yuneta/^yu
 git clone https://github.com/yuneta/yclone-gclass /yuneta/development/yuneta/^yuneta/yclone-gclass
 git clone https://github.com/yuneta/docs /yuneta/development/yuneta/^yuneta/docs
 git clone https://github.com/yuneta/yscapec /yuneta/development/yuneta/^yuneta/yscapec
-git clone https://github.com/yuneta/mxgraph-js.git /yuneta/development/yuneta/^yuneta/mxgraph-js
 git clone https://github.com/yuneta/ytests /yuneta/development/yuneta/^yuneta/ytests
 git clone https://github.com/yuneta/extractjson /yuneta/development/yuneta/^yuneta/extractjson
 git clone https://github.com/yuneta/yclone-project /yuneta/development/yuneta/^yuneta/yclone-project/
