@@ -12,12 +12,17 @@ if [ -f "/usr/bin/apt-get" ]; then
 #   With apt-get
 #
     sudo apt -y install vim rsync tree sudo ssh curl fail2ban
-    sudo apt -y install autotools-dev automake autogen libtool debmake cmake gettext mercurial git psmisc liblzma-dev zlib1g-dev libpcre3-dev libcurl4-openssl-dev libldap2-dev libidn11-dev libidn2-0-dev librtmp-dev uuid-dev libarchive-dev libpq-dev can-utils libsocketcan2 libsocketcan-dev
+    sudo apt -y install autotools-dev automake autogen libtool debmake cmake gettext mercurial git psmisc
+    sudo apt -y install liblzma-dev zlib1g-dev libpcre3-dev libcurl4-openssl-dev
+    sudo apt -y install libldap2-dev libidn11-dev libidn2-0-dev
+    sudo apt -y install librtmp-dev uuid-dev libarchive-dev
+    sudo apt -y install libpq-dev can-utils libsocketcan2 libsocketcan-dev
     sudo apt -y install clang libc++-dev libc++abi-dev libunwind-dev
     sudo apt -y install libprocps-dev
     sudo apt -y install libproc2-dev
     sudo apt -y install binutils-dev
     sudo apt -y install libiberty-dev
+    sudo apt -y install python3-kconfiglib
 
 
 elif [ -f "/usr/bin/yum" ]; then
