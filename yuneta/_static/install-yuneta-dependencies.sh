@@ -23,6 +23,7 @@ if [ -f "/usr/bin/apt-get" ]; then
     sudo apt -y install binutils-dev
     sudo apt -y install libiberty-dev
     sudo apt -y install python3-kconfiglib
+    sudo apt -y install check
 
 
 elif [ -f "/usr/bin/yum" ]; then
