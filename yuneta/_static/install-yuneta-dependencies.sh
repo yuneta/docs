@@ -24,6 +24,7 @@ if [ -f "/usr/bin/apt-get" ]; then
     sudo apt -y install libiberty-dev
     sudo apt -y install python3-kconfiglib
     sudo apt -y install check
+    sudo apt -y install super
     sudo apt -y install net-tools
     sudo apt -y install python-is-python3
     sudo apt -y install python3-sphinx
