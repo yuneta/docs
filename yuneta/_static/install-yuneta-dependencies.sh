@@ -28,6 +28,7 @@ if [ -f "/usr/bin/apt-get" ]; then
     sudo apt -y install net-tools
     sudo apt -y install python-is-python3
     sudo apt -y install python3-sphinx
+    sudo apt -y install meson
 
 
 elif [ -f "/usr/bin/yum" ]; then
