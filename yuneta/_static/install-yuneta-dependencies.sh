@@ -29,6 +29,7 @@ if [ -f "/usr/bin/apt-get" ]; then
     sudo apt -y install python-is-python3
     sudo apt -y install python3-sphinx
     sudo apt -y install meson
+    sudo apt -y install libnanomsg-dev
 
 
 elif [ -f "/usr/bin/yum" ]; then
