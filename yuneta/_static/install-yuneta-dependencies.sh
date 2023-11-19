@@ -30,6 +30,7 @@ if [ -f "/usr/bin/apt-get" ]; then
     sudo apt -y install python3-sphinx
     sudo apt -y install meson
     sudo apt -y install libnanomsg-dev
+    sudo apt -y install ninja-build
 
 
 elif [ -f "/usr/bin/yum" ]; then
